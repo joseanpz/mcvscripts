@@ -1,14 +1,14 @@
 ﻿select 
 a.*,
-b.no_flag_count,
-a.ccis + a.reestructuras + a.sobregiros + a.intercompanias 
-+ a.carteras_vencidas + a.carteras_adquiridas + b.no_flag_count as total 
+b.no_flag_count
+--a.ccis + a.reestructuras + a.sobregiros + a.intercompanias 
+--+ a.carteras_vencidas + a.carteras_adquiridas + b.no_flag_count as total 
 from (
 select 
     fecha,
     count(distinct rfc) as rfcs,
-    count(distinct cliente) as clients,
-    count(*) as creditos,
+    count(distinct cliente) as clientes,
+    count(*) as lineas,
     sum(saldo) as saldo_total,
     sum(cartera_vencida) as cartera_vencida_total,
     sum(cci_flag) as ccis,
@@ -19,7 +19,8 @@ select
     sum(cartera_adquirida_flag) as carteras_adquiridas
 from cartera.tbl_universo_banderas
 group by fecha
-order by fecha) a
+order by fecha
+) a
 join (
 select
 fecha,
