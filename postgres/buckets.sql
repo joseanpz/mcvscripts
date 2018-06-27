@@ -1,4 +1,4 @@
-﻿create view cartera.buckets as
+﻿create or replace view cartera.buckets as
 select
     *,
     case
@@ -12,4 +12,4 @@ select
 from cartera.tbl_universo_banderas
 -- Se caculan buckets sin cosiderar cartas de credito, reestructuras, creditos de sobregiro o intercompanias
 where  cci_flag + reestructuras_flag 
-    + sobregiro_flag + intercompania_flag  = 0
+    + sobregiro_flag + intercompania_flag + cartera_adquirida_flag  = 0

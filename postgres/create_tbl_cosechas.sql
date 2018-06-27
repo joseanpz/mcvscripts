@@ -2,6 +2,13 @@
 
 select
     b.*,
+    a.monto_linea,
+    case 
+        when a.monto_linea < 8000000 then 0
+        when a.monto_linea >= 8000000 and a.monto_linea < 15000000 then 1
+        when a.monto_linea >= 15000000 then 2
+        else 3
+    end as monto_clasificacion,
     a.bkt
 into cartera.tbl_cosechas 
 from cartera.buckets a
