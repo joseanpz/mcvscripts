@@ -17,3 +17,12 @@ create table cartera.tbl_cartera_ventana_cv (
 copy cartera.tbl_cartera_ventana_cv 
 from '/home/jose/Desktop/Riesgo/projects/CRTV/data/cartera/cartera_vencida2_utf8.csv'
 delimiter '|' null '\N' csv;
+
+create index cartera__tbl_cartera_ventana_cv_rfc_idx
+on cartera.tbl_cartera_ventana_cv (rfc);
+
+create index cartera__tbl_cartera_ventana_cv_fecha_idx
+on cartera.tbl_cartera_ventana_cv (fecha);
+
+create index cartera__tbl_cartera_ventana_cv_lleave_universal_idx
+on cartera.tbl_cartera_ventana_cv (llave_universal);

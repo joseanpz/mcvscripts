@@ -1,0 +1,18 @@
+﻿-- Clientes disitintos en el universo en 201401
+select 
+    count(distinct cliente) as clientes,
+    count(distinct rfc) as rfcs, 
+    sum(saldo) as saldo_total, 
+    sum(cartera_vencida) as cartera_vencida_total
+from cartera.tbl_cartera_crediticia_linea a
+inner join (
+select distinct llave_universal, fecha
+from colocacion.tbl_colocacion_mensual_uen_peq_med
+where uen in ('05 PEQUEÑA EMPRESA NL', '09 PEQUEÑA EMPRESA TERRITORIAL') 
+and perfil_negocio_actual not in ('CORPORATIVO', 'DIRECCION', 'DUMMY', 'GOBIERNO')
+and producto not in ('3I ACS AUTOPRESTO', '3N ACS AUTOPRESTO', 'Z1 SEGURO ACS AUTOPRESTO')
+and subsegmento_producto <> 'AB - VARIOS'
+and fecha = 201501
+) b
+on a.llave_universal_20 = b.llave_universal -- and a.fecha = b.fecha
+where a.fecha = 201501
