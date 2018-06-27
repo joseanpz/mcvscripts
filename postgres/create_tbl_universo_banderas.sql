@@ -37,4 +37,4 @@ select
         else 0::smallint
     end as cartera_adquirida_flag
     into cartera.tbl_universo_banderas    
-from cartera.tbl_universo_cartera_crediticia_pequena_empresa a;
+from cartera.tbl_universo a;
