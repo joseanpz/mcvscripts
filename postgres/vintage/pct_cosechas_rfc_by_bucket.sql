@@ -9,7 +9,7 @@ select
     round(100 * avg(sdovdo_m5), 2) as pct5,
     round(100 * avg(sdovdo_m6), 2) as pct6,
     count(*)
-from cartera.tbl_cosechas
+from cartera.tbl_cosechas_rfc
 where bkt = 4 and monto_clasificacion = 2
 group by fecha_ancla
 order by fecha_ancla
