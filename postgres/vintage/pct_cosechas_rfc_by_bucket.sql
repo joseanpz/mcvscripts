@@ -1,4 +1,4 @@
-﻿-- create view cartera.pct_cosechas_by_bucket as
+-- create view cartera.pct_cosechas_by_bucket as
 select 
     fecha_ancla, 
     round(100 * avg(sdovdo_max_m0), 2) as pct0,
@@ -10,6 +10,6 @@ select
     round(100 * avg(sdovdo_max_m6), 2) as pct6,
     count(*)
 from cartera.tbl_cosechas_rfc
-where bkt = 4 and monto_clasificacion = 2
+where bkt_max = 0 and monto_max_clasificacion = 2
 group by fecha_ancla
 order by fecha_ancla
