@@ -1,4 +1,4 @@
-﻿create view cartera.pct_cosechas_by_bucket as
+﻿-- create view cartera.pct_cosechas_by_bucket as
 select 
     fecha_ancla, 
     round(100 * avg(sdovdo_m0), 2) as pct0,
