@@ -15,16 +15,16 @@ where uen in ('05 PEQUEÑA EMPRESA NL', '09 PEQUEÑA EMPRESA TERRITORIAL')
 on a.llave_universal_20 = b.llave_universal and a.fecha = b.fecha;
 
 create index cartera__tbl_universo_fecha_idx
-on cartera.tbl_universo (fecha)
+on cartera.tbl_universo (fecha);
 
 create index cartera__tbl_universo_llave_universal_20_idx
-on cartera.tbl_universo (llave_universal_20)
+on cartera.tbl_universo (llave_universal_20);
 
 create unique index cartera__tbl_universo_llave_universal_20_fecha_idx
-on cartera.tbl_universo (llave_universal_20, fecha)
+on cartera.tbl_universo (llave_universal_20, fecha);
 
 create index cartera__tbl_universo_rfc_idx
-on cartera.tbl_universo (rfc)
+on cartera.tbl_universo (rfc);
 
 create index cartera__tbl_universo_cliente_idx
-on cartera.tbl_universo (cliente)
+on cartera.tbl_universo (cliente);

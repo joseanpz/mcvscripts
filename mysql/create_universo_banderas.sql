@@ -10,11 +10,12 @@ CREATE TABLE DBMYMWORK.JEA_MCV_UNIVERSO_BANDERAS
   REESTRUCTURA TINYINT,
   SOBREGIRO TINYINT,
   INTERCOMPANIA TINYINT,
-  CARTERA_ADQUIRIDA TINYINT
+  CARTERA_ADQUIRIDA TINYINT,
+  REVOLVENTE TINIINT
 );
 
 
--- copy cartera.tbl_universo_banderas to '/tmp/tbl_universo_banderas.csv' delimiter '|';
+-- copy cartera.tbl_universo_banderas_ to '/tmp/tbl_universo_banderas.csv' delimiter '|';
 -- rsync -avz /tmp/tbl_universo_banderas.csv joseangel@10.24.25.196:/data/mysql-files/joseangel/
 LOAD DATA INFILE '/data/mysql-files/joseangel/tbl_universo_banderas.csv'
 INTO TABLE DBMYMWORK.JEA_MCV_UNIVERSO_BANDERAS
