@@ -5,10 +5,11 @@ drop table if exists
 create table if not exists 
   cartera.tbl_cartera_comercial_rfc_saldo as
 select 
-  RFC, 
-  FECHA, 
-  MESESDC, 
-  SUM(SALDO) AS SALDO 
+  rfc, 
+  fecha, 
+  mesesdc, 
+  sum(saldo) AS saldo,
+  max(monto_linea) as monto_linea
 from cartera.tbl_cartera_crediticia_linea 
 group by 1,2,3;
 
