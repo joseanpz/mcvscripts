@@ -1,0 +1,214 @@
+params = {
+    'objective': 'binary:logistic', 
+    'eta':0.5, 
+    'max_depth': 10, 
+    'eval_metric': 'auc'  # ,
+#     'subsample': 0.5,
+#     'max_delta_step': 10    
+}
+
+num_round = 10
+[17:29:25] /workspace/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 1034 extra nodes, 0 pruned nodes, max_depth=10
+[0]	eval-auc:0.904143	train-auc:0.913063	eval-f1_score:0.449843	train-f1_score:0.551113
+[17:29:28] /workspace/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 1162 extra nodes, 0 pruned nodes, max_depth=10
+[1]	eval-auc:0.921482	train-auc:0.932415	eval-f1_score:0.485198	train-f1_score:0.608546
+[17:29:31] /workspace/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 1216 extra nodes, 0 pruned nodes, max_depth=10
+[2]	eval-auc:0.930552	train-auc:0.943354	eval-f1_score:0.481734	train-f1_score:0.632218
+[17:29:34] /workspace/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 1172 extra nodes, 0 pruned nodes, max_depth=10
+[3]	eval-auc:0.937043	train-auc:0.95328	eval-f1_score:0.500996	train-f1_score:0.664749
+[17:29:37] /workspace/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 1314 extra nodes, 0 pruned nodes, max_depth=10
+[4]	eval-auc:0.943138	train-auc:0.96237	eval-f1_score:0.535399	train-f1_score:0.706321
+[17:29:40] /workspace/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 1016 extra nodes, 0 pruned nodes, max_depth=10
+[5]	eval-auc:0.94825	train-auc:0.968469	eval-f1_score:0.55234	train-f1_score:0.72929
+[17:29:43] /workspace/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 1120 extra nodes, 0 pruned nodes, max_depth=10
+[6]	eval-auc:0.954638	train-auc:0.976803	eval-f1_score:0.567547	train-f1_score:0.758814
+[17:29:46] /workspace/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 1060 extra nodes, 0 pruned nodes, max_depth=10
+[7]	eval-auc:0.962563	train-auc:0.984864	eval-f1_score:0.585736	train-f1_score:0.786526
+[17:29:50] /workspace/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 934 extra nodes, 0 pruned nodes, max_depth=10
+[8]	eval-auc:0.966372	train-auc:0.988531	eval-f1_score:0.601909	train-f1_score:0.805857
+[17:29:53] /workspace/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 886 extra nodes, 0 pruned nodes, max_depth=10
+[9]	eval-auc:0.968584	train-auc:0.991376	eval-f1_score:0.610667	train-f1_score:0.820339
+
+----------------------------------------------------
+version = 0
+params = {
+    'objective': 'binary:logistic', 
+    'eta':0.3, 
+    'max_depth': 10, 
+    'eval_metric': 'auc'  # ,
+#     'subsample': 0.5,
+#     'max_delta_step': 10    
+}
+
+[17:30:29] /workspace/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 1034 extra nodes, 0 pruned nodes, max_depth=10
+[0]	eval-auc:0.904143	train-auc:0.913063	eval-f1_score:0.449843	train-f1_score:0.551113
+[17:30:32] /workspace/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 1078 extra nodes, 0 pruned nodes, max_depth=10
+[1]	eval-auc:0.919056	train-auc:0.92773	eval-f1_score:0.478453	train-f1_score:0.587764
+[17:30:35] /workspace/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 1264 extra nodes, 0 pruned nodes, max_depth=10
+[2]	eval-auc:0.927873	train-auc:0.939134	eval-f1_score:0.474944	train-f1_score:0.609066
+[17:30:38] /workspace/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 1176 extra nodes, 0 pruned nodes, max_depth=10
+[3]	eval-auc:0.931697	train-auc:0.943817	eval-f1_score:0.486431	train-f1_score:0.624665
+[17:30:41] /workspace/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 1152 extra nodes, 0 pruned nodes, max_depth=10
+[4]	eval-auc:0.936338	train-auc:0.949306	eval-f1_score:0.497756	train-f1_score:0.642881
+[17:30:45] /workspace/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 1238 extra nodes, 0 pruned nodes, max_depth=10
+[5]	eval-auc:0.940253	train-auc:0.955667	eval-f1_score:0.503465	train-f1_score:0.664979
+[17:30:48] /workspace/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 1188 extra nodes, 0 pruned nodes, max_depth=10
+[6]	eval-auc:0.944172	train-auc:0.960708	eval-f1_score:0.521195	train-f1_score:0.687203
+[17:30:51] /workspace/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 1224 extra nodes, 0 pruned nodes, max_depth=10
+[7]	eval-auc:0.94818	train-auc:0.965325	eval-f1_score:0.524213	train-f1_score:0.702134
+[17:30:54] /workspace/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 1284 extra nodes, 0 pruned nodes, max_depth=10
+[8]	eval-auc:0.951688	train-auc:0.970769	eval-f1_score:0.535772	train-f1_score:0.723894
+[17:30:57] /workspace/src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 1038 extra nodes, 0 pruned nodes, max_depth=10
+[9]	eval-auc:0.95656	train-auc:0.975675	eval-f1_score:0.548941	train-f1_score:0.74135
+
+
+
+after 90 iterations
+eval-f1_score_thr0.15:0.868196	eval-f1_score_thr0.25:0.87065	eval-f1_score_thr0.35:0.8712
+
+after 121 iterations
+eval-f1_score_thr0.2:0.875649	eval-f1_score_thr0.25:0.876949	eval-f1_score_thr0.3:0.87757	eval-f1_score_thr0.35:0.875628	eval-f1_score_thr0.4:0.873891
+
+after 145 iterations
+[24]	eval-auc:0.994333	eval-f1_score_thr0.2:0.87989	eval-f1_score_thr0.25:0.880124	eval-f1_score_thr0.3:0.879925	eval-f1_score_thr0.35:0.878883	eval-f1_score_thr0.4:0.877802
+
+after 150 iterations
+[29]	eval-auc:0.994402	eval-f1_score_thr0.2:0.880086	eval-f1_score_thr0.25:0.880805	eval-f1_score_thr0.3:0.881271	eval-f1_score_thr0.35:0.880414	eval-f1_score_thr0.4:0.878304
+------              	Train                      	Validation                 	Test                       
+confusion matrix    	[[327037      0]           	[[81597     0]             	[[81194   328]             
+                    	 [     0  13422]]          	 [    0  3362]]            	 [  433  2873]]            
+confusion matrix pct	[[96.05767508  0.        ] 	[[96.04279711  0.        ] 	[[95.71603716  0.38666478] 
+                    	 [ 0.          3.94232492]]	 [ 0.          3.95720289]]	 [ 0.51044466  3.3868534 ]]
+f1_score            	1.0                        	1.0                        	0.8830490241278622         
+accuracy score      	1.0                        	1.0                        	0.9910289055500542         
+recall score        	1.0                        	1.0                        	0.8690260133091349         
+precision_score     	1.0                        	1.0                        	0.8975320212433614 
+
+
+
+after 180 iterations
+[29]	eval-auc:0.994785	eval-f1_score_thr0.2:0.884969	eval-f1_score_thr0.25:0.884657	eval-f1_score_thr0.3:0.883801	eval-f1_score_thr0.35:0.882787	eval-f1_score_thr0.4:0.881265
+
+thr_max = 0.22
+------              	Train                      	Validation                 	Test                       
+confusion matrix    	[[327037      0]           	[[81597     0]             	[[81207   315]             
+                    	 [     0  13422]]          	 [    0  3362]]            	 [  426  2880]]            
+confusion matrix pct	[[96.05767508  0.        ] 	[[96.04279711  0.        ] 	[[95.73136229  0.37133965] 
+                    	 [ 0.          3.94232492]]	 [ 0.          3.95720289]]	 [ 0.50219267  3.39510539]]
+f1_score            	1.0                        	1.0                        	0.8860175357637287         
+accuracy score      	1.0                        	1.0                        	0.9912646767576744         
+recall score        	1.0                        	1.0                        	0.8711433756805808         
+precision_score     	1.0                        	1.0                        	0.9014084507042254
+
+after 210 iterations
+[29]	eval-auc:0.994933	eval-f1_score_thr0.15:0.886057	eval-f1_score_thr0.2:0.886468	eval-f1_score_thr0.25:0.885378	eval-f1_score_thr0.3:0.884621	eval-f1_score_thr0.35:0.88326
+
+thr_max = 0.22
+------              	Train                      	Validation                 	Test                       
+confusion matrix    	[[327037      0]           	[[81597     0]             	[[81215   307]             
+                    	 [     0  13422]]          	 [    0  3362]]            	 [  427  2879]]            
+confusion matrix pct	[[96.05767508  0.        ] 	[[96.04279711  0.        ] 	[[95.74079313  0.3619088 ] 
+                    	 [ 0.          3.94232492]]	 [ 0.          3.95720289]]	 [ 0.50337153  3.39392653]]
+f1_score            	1.0                        	1.0                        	0.8869377695625384         
+accuracy score      	1.0                        	1.0                        	0.9913471966803414         
+recall score        	1.0                        	1.0                        	0.8708408953418028         
+precision_score     	1.0                        	1.0                        	0.9036409290646579 
+
+after 240 iterations
+[29]	eval-auc:0.995033	eval-f1_score_thr0.15:0.88636	eval-f1_score_thr0.2:0.888378	eval-f1_score_thr0.25:0.886895	eval-f1_score_thr0.3:0.887434	eval-f1_score_thr0.35:0.884845
+
+thr = 0.22
+------              	Train                      	Validation                 	Test                       
+confusion matrix    	[[327037      0]           	[[81597     0]             	[[81218   304]             
+                    	 [     0  13422]]          	 [    0  3362]]            	 [  420  2886]]            
+confusion matrix pct	[[96.05767508  0.        ] 	[[96.04279711  0.        ] 	[[95.7443297   0.35837224] 
+                    	 [ 0.          3.94232492]]	 [ 0.          3.95720289]]	 [ 0.49511954  3.40217853]]
+f1_score            	1.0                        	1.0                        	0.8885467980295566         
+accuracy score      	1.0                        	1.0                        	0.9914650822841514         
+recall score        	1.0                        	1.0                        	0.8729582577132486         
+precision_score     	1.0                        	1.0                        	0.9047021943573668 
+
+after 270 iterations
+[29]	eval-auc:0.995094	eval-f1_score_thr0.19:0.888209	eval-f1_score_thr0.22:0.888684	eval-f1_score_thr0.25:0.888339
+
+thr = 0.22
+------              	Train                      	Validation                 	Test                       
+confusion matrix    	[[327037      0]           	[[81597     0]             	[[81214   308]             
+                    	 [     0  13422]]          	 [    0  3362]]            	 [  416  2890]]            
+confusion matrix pct	[[96.05767508  0.        ] 	[[96.04279711  0.        ] 	[[95.73961428  0.36308766] 
+                    	 [ 0.          3.94232492]]	 [ 0.          3.95720289]]	 [ 0.49040411  3.40689395]]
+f1_score            	1.0                        	1.0                        	0.8886838868388685         
+accuracy score      	1.0                        	1.0                        	0.9914650822841514         
+recall score        	1.0                        	1.0                        	0.8741681790683605         
+precision_score     	1.0                        	1.0                        	0.9036898061288305
+
+
+
+after 300 iterations
+[29]	eval-auc:0.995147	eval-f1_score_thr0.19:0.889672	eval-f1_score_thr0.22:0.889128	eval-f1_score_thr0.25:0.887824
+
+thr_max = 0.18
+------              	Train                      	Validation                 	Test                       
+confusion matrix    	[[327037      0]           	[[81597     0]             	[[81202   320]             
+                    	 [     0  13422]]          	 [    0  3362]]            	 [  394  2912]]            
+confusion matrix pct	[[96.05767508  0.        ] 	[[96.04279711  0.        ] 	[[95.72546801  0.37723393] 
+                    	 [ 0.          3.94232492]]	 [ 0.          3.95720289]]	 [ 0.46446928  3.43282878]]
+f1_score            	1.0                        	1.0                        	0.8907922912205567         
+accuracy score      	1.0                        	1.0                        	0.9915829678879615         
+recall score        	1.0                        	1.0                        	0.8808227465214761         
+precision_score     	1.0                        	1.0                        	0.900990099009901
+
+
+after 330 iterations
+[29]	eval-auc:0.995194	eval-f1_score_thr0.16:0.889498	eval-f1_score_thr0.18:0.89052	eval-f1_score_thr0.22:0.88947	eval-f1_score_thr0.25:0.888717
+
+thr_max = 0.19
+
+------              	Train                      	Validation                 	Test                       
+confusion matrix    	[[327037      0]           	[[81597     0]             	[[81209   313]             
+                    	 [     0  13422]]          	 [    0  3362]]            	 [  399  2907]]            
+confusion matrix pct	[[96.05767508  0.        ] 	[[96.04279711  0.        ] 	[[95.73372     0.36898194] 
+                    	 [ 0.          3.94232492]]	 [ 0.          3.95720289]]	 [ 0.47036356  3.4269345 ]]
+f1_score            	1.0                        	1.0                        	0.8908979466748391         
+accuracy score      	1.0                        	1.0                        	0.9916065450087236         
+recall score        	1.0                        	1.0                        	0.8793103448275862         
+precision_score     	1.0                        	1.0                        	0.9027950310559006
+
+after 360 iterations
+[29]	eval-auc:0.995236	eval-f1_score_thr0.18:0.889976	eval-f1_score_thr0.19:0.890591	eval-f1_score_thr0.2:0.890663	eval-f1_score_thr0.21:0.890221
+
+thr_max = 0.16 
+
+------              	Train                      	Validation                 	Test                       
+confusion matrix    	[[327037      0]           	[[81597     0]             	[[81187   335]             
+                    	 [     0  13422]]          	 [    0  3362]]            	 [  380  2926]]            
+confusion matrix pct	[[96.05767508  0.        ] 	[[96.04279711  0.        ] 	[[95.70778517  0.39491677] 
+                    	 [ 0.          3.94232492]]	 [ 0.          3.95720289]]	 [ 0.44796529  3.44933277]]
+f1_score            	1.0                        	1.0                        	0.8911222780569514         
+accuracy score      	1.0                        	1.0                        	0.9915711793275805         
+recall score        	1.0                        	1.0                        	0.8850574712643678         
+precision_score     	1.0                        	1.0                        	0.8972707758356332 
+
+after 660 iterations
+[299]	eval-auc:0.995501	eval-f1_score_thr0.18:0.891648	eval-f1_score_thr0.19:0.892402	eval-f1_score_thr0.2:0.893264	eval-f1_score_thr0.21:0.893374
+
+thr_max = 0.21
+
+------              	Train                      	Validation                 	Test                       
+confusion matrix    	[[327037      0]           	[[81597     0]             	[[81237   285]             
+                    	 [     0  13422]]          	 [    0  3362]]            	 [  407  2899]]            
+confusion matrix pct	[[96.05767508  0.        ] 	[[96.04279711  0.        ] 	[[95.76672797  0.33597397] 
+                    	 [ 0.          3.94232492]]	 [ 0.          3.95720289]]	 [ 0.47979441  3.41750365]]
+f1_score            	1.0                        	1.0                        	0.8933744221879816         
+accuracy score      	1.0                        	1.0                        	0.9918423162163437         
+recall score        	1.0                        	1.0                        	0.8768905021173624         
+precision_score     	1.0                        	1.0                        	0.9104899497487438
+
+
+
+
+
+
+
+
+

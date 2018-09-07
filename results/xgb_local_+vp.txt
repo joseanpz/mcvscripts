@@ -1,0 +1,213 @@
+
+(without vp data)
+
+                     Feature  Importance
+0                  DEUDA_TOT    0.025378
+1                      MS_OP    0.017785
+2  MIN_R_BAL_BY_CRED_LIM_12M    0.016120
+3        BK12_MAX_CREDIT_AMT    0.015836
+4                   DS_OL_CL    0.014902
+                                 Feature  Importance
+0                              DEUDA_TOT    0.025378
+1                                  MS_OP    0.017785
+2              MIN_R_BAL_BY_CRED_LIM_12M    0.016120
+3                    BK12_MAX_CREDIT_AMT    0.015836
+4                               DS_OL_CL    0.014902
+5                        NBK12_PCT_PROMT    0.014577
+6                                  DS_CL    0.013684
+7               MIN_R_BAL_BY_MAX_BAL_12M    0.013156
+8                      R_BAL_BY_CRED_LIM    0.012669
+9              MIN_D_CRED_LIM_TO_BAL_12M    0.012181
+10             MAX_R_BAL_BY_CRED_LIM_12M    0.012019
+11              MIN_R_BAL_BY_MAX_BAL_03M    0.011369
+12   AVG_PND_MENOS_D_CRED_LIM_TO_BAL_12M    0.011369
+13   AVG_PND_MENOS_R_BAL_BY_CRED_LIM_12M    0.011004
+14      AVG_PND_MAS_R_BAL_BY_MAX_BAL_03M    0.010801
+15                           BK_IND_PMOR    0.010557
+16                     D_CRED_LIM_TO_BAL    0.010435
+17    AVG_PND_MENOS_R_BAL_BY_MAX_BAL_12M    0.010395
+18              MAX_R_BAL_BY_MAX_BAL_03M    0.010313
+19              MIN_R_BAL_BY_MAX_BAL_06M    0.009989
+20                           MIN_BAL_12M    0.009867
+21             MAX_R_BAL_BY_CRED_LIM_03M    0.009461
+22                       NBK12_DEUDA_TOT    0.008852
+23             MAX_R_BAL_BY_CRED_LIM_06M    0.008649
+24    AVG_PND_MENOS_R_BAL_BY_MAX_BAL_03M    0.008649
+25             MIN_R_BAL_BY_CRED_LIM_06M    0.008405
+26                        NBK12_DEUDA_CP    0.008080
+27                        NBK12_NUM_CRED    0.007877
+28              MAX_R_BAL_BY_MAX_BAL_12M    0.007837
+29      AVG_PND_MAS_R_BAL_BY_MAX_BAL_12M    0.007755
+..                                   ...         ...
+423                 MIN_VENCIDO60MAS_03M    0.000122
+424                   MIN_PCT_VENC59_06M    0.000122
+425                    SUM_VENC90MAS_12M    0.000122
+426       AVG_PND_MENOS_VENCIDO60MAS_03M    0.000081
+427                    SUM_VENC90MAS_06M    0.000081
+428                      NUM_VENC90M_03M    0.000081
+429           MIN_MAX_HI_CALCAR_CEIL_12M    0.000081
+430           MIN_MAX_HI_CALCAR_CEIL_03M    0.000081
+431                 AVG_VENCIDO60MAS_06M    0.000081
+432                   AVG_PCT_VENC89_03M    0.000081
+433                       SUM_VENC89_03M    0.000081
+434                  MIN_PCT_VENC60M_03M    0.000081
+435          NUM_AVG_HI_CALCAR_FLOOR_06M    0.000081
+436       AVG_PND_MENOS_VENCIDO60MAS_06M    0.000081
+437                  MIN_PCT_VENC30M_06M    0.000081
+438                       MIN_VENC89_12M    0.000081
+439                      MIN_VENC90M_03M    0.000081
+440           MAX_MAX_HI_CALCAR_CEIL_06M    0.000041
+441                 MIN_VENCIDO30MAS_12M    0.000041
+442                       MIN_VENC59_12M    0.000041
+443           MAX_MAX_HI_CALCAR_CEIL_03M    0.000041
+444                 MIN_VENCIDO60MAS_12M    0.000041
+445              AVG_PND_MAS_VENC90M_06M    0.000041
+446                  MIN_PCT_VENC90M_12M    0.000041
+447                 MIN_VENCIDO60MAS_06M    0.000041
+448                  MIN_PCT_VENC60M_06M    0.000041
+449                    SUM_VENC90MAS_03M    0.000041
+450                       AVG_VENC89_03M    0.000041
+451                       SUM_VENC89_06M    0.000041
+452           MAX_MAX_HI_CALCAR_CEIL_12M    0.000041
+
+
+
+
+[453 rows x 2 columns]
+------------------ Finish trainig -------------------------
+
+threshold = 0.1    (definido)
+------              	Train                            	Validation               	Test                     
+confusion matrix    	[[244924    516]                 	[[80940   657]           	[[80834   688]           
+                    	 [     1  10059]]                	 [  303  3059]]          	 [  304  3002]]          
+confusion matrix pct	[[9.58606654e-01 2.01956947e-03] 	[[0.95269483 0.00773314] 	[[0.95291649 0.00811053] 
+                    	 [3.91389432e-06 3.93698630e-02]]	 [0.00356643 0.0360056 ]]	 [0.00358372 0.03538926]]
+f1_score            	0.9749454809789192               	0.8643684656682679       	0.8582046883933677       
+accuracy score      	0.9979765166340508               	0.9887004319730693       	0.9883057481020417       
+recall score        	0.9999005964214712               	0.9098750743604997       	0.9080459770114943       
+precision_score     	0.9512056737588652               	0.8231969860064585       	0.813550135501355        
+{'max_depth': 10, 'eta': 0.3, 'silent': 1, 'objective': 'binary:logistic', 'eval_metric': 'auc', 'seed': '1'}
+num_round: 100
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+------------------ Initialize trainig ---------------------
+                     Feature  Importance
+0                  DEUDA_TOT    0.023398
+1                      MS_OP    0.015623
+2                   DS_OL_CL    0.015437
+3                      DS_CL    0.013763
+4  MIN_R_BAL_BY_CRED_LIM_12M    0.013429
+                                 Feature  Importance
+0                              DEUDA_TOT    0.023398
+1                                  MS_OP    0.015623
+2                               DS_OL_CL    0.015437
+3                                  DS_CL    0.013763
+4              MIN_R_BAL_BY_CRED_LIM_12M    0.013429
+5                    BK12_MAX_CREDIT_AMT    0.012945
+6                        NBK12_PCT_PROMT    0.012350
+7              MAX_R_BAL_BY_CRED_LIM_12M    0.009560
+8               SUM_AMORTIZACIONEXIGIBLE    0.009337
+9                            BK_IND_PMOR    0.009300
+10             MIN_D_CRED_LIM_TO_BAL_12M    0.009114
+11                       NBK12_DEUDA_TOT    0.008965
+12              MIN_R_BAL_BY_MAX_BAL_12M    0.008890
+13   AVG_PND_MENOS_R_BAL_BY_CRED_LIM_12M    0.008667
+14                           MIN_BAL_12M    0.008630
+15              MIN_R_BAL_BY_MAX_BAL_06M    0.008593
+16                     R_BAL_BY_CRED_LIM    0.008518
+17              MIN_R_BAL_BY_MAX_BAL_03M    0.008481
+18   AVG_PND_MENOS_D_CRED_LIM_TO_BAL_12M    0.007886
+19                        NBK12_NUM_CRED    0.007849
+20                     D_CRED_LIM_TO_BAL    0.007700
+21    AVG_PND_MENOS_R_BAL_BY_MAX_BAL_12M    0.007477
+22           AVG_MAX_DIAS_PARA_PAGO_U12M    0.007216
+23                 SUM_PAGOREALIZADO_MES    0.007142
+24                        NBK12_DEUDA_CP    0.007068
+25              MAX_R_BAL_BY_MAX_BAL_03M    0.006993
+26    AVG_PND_MENOS_R_BAL_BY_MAX_BAL_06M    0.006770
+27    AVG_PND_MENOS_R_BAL_BY_MAX_BAL_03M    0.006547
+28      AVG_PND_MAS_R_BAL_BY_MAX_BAL_03M    0.006398
+29             MIN_R_BAL_BY_CRED_LIM_06M    0.006287
+..                                   ...         ...
+567           MAX_MAX_HI_CALCAR_CEIL_03M    0.000074
+568                   MIN_PCT_VENC59_06M    0.000074
+569                      MIN_VENC90M_06M    0.000074
+570            AVG_PND_MENOS_VENC90M_03M    0.000074
+571                       MIN_VENC29_06M    0.000074
+572                       MIN_VENC59_06M    0.000074
+573         AVG_PND_MAS_VENCIDO60MAS_12M    0.000074
+574               AVG_AVG1_VP_MES_U03M_2    0.000074
+575               MAX_AVG2_VP_MES_U03M_2    0.000037
+576               AVG_AVG2_VP_PER_U06M_2    0.000037
+577                        AVG1_VP_MES_2    0.000037
+578               AVG_AVG1_VP_PER_U03M_2    0.000037
+579               AVG_AVG2_VP_MES_U03M_2    0.000037
+580                    SUM_VENC90MAS_03M    0.000037
+581               AVG_AVG1_VP_MES_U12M_2    0.000037
+582                 MIN_AVG1_VP_MES_U06M    0.000037
+583           MIN_MAX_HI_CALCAR_CEIL_06M    0.000037
+584                  MIN_PCT_VENC60M_12M    0.000037
+585               MAX_AVG1_VP_PER_U12M_2    0.000037
+586                MIN_MIN_VP_PER_U06M_2    0.000037
+587               MAX_AVG1_VP_PER_U03M_2    0.000037
+588                 MIN_VENCIDO30MAS_12M    0.000037
+589                 MIN_AVG2_VP_MES_U06M    0.000037
+590                 MIN_AVG2_VP_MES_U12M    0.000037
+591               MAX_AVG1_VP_MES_U06M_2    0.000037
+592                MIN_MAX_VP_PER_U03M_2    0.000037
+593           MAX_MAX_HI_CALCAR_CEIL_06M    0.000037
+594                   MIN_PCT_VENC89_12M    0.000037
+595                 AVG_VENCIDO60MAS_06M    0.000037
+596               MIN_AVG1_VP_MES_U03M_2    0.000037
+
+[597 rows x 2 columns]
+----------- threshold----------- 
+ 
+ 0.19
+(maximize train fi_score)
+
+ ------              	Train                            	Validation               	Test                     
+confusion matrix    	[[245404     36]                 	[[81039   558]           	[[80970   552]           
+                    	 [     1  10059]]                	 [  617  2745]]          	 [  640  2666]]          
+confusion matrix pct	[[9.60485323e-01 1.40900196e-04] 	[[0.9538601  0.00656787] 	[[0.95451973 0.00650729] 
+                    	 [3.91389432e-06 3.93698630e-02]]	 [0.00726233 0.0323097 ]]	 [0.00754468 0.0314283 ]]
+f1_score            	0.9981642272388986               	0.8237059264816203       	0.8172900061312078       
+accuracy score      	0.9998551859099805               	0.9861697995503713       	0.9859480360258406       
+recall score        	0.9999005964214712               	0.8164782867340868       	0.8064125831820932       
+precision_score     	0.9964338781575037               	0.8310626702997275       	0.8284648850217526       
+{'max_depth': 10, 'eta': 0.3, 'silent': 1, 'objective': 'binary:logistic', 'eval_metric': 'auc', 'seed': '1'}
+num_round: 100
+
+-------------------------------------------------------------------
+threshold = 0.15
+
+------              	Train                            	Validation               	Test                     
+confusion matrix    	[[245353     87]                 	[[80900   697]           	[[80845   677]           
+                    	 [     1  10059]]                	 [  547  2815]]          	 [  557  2749]]          
+confusion matrix pct	[[9.60285714e-01 3.40508806e-04] 	[[0.95222401 0.00820396] 	[[0.95304616 0.00798086] 
+                    	 [3.91389432e-06 3.93698630e-02]]	 [0.0064384  0.03313363]]	 [0.00656623 0.03240675]]
+f1_score            	0.9956448579629812               	0.8190282222868781       	0.816696375519905        
+accuracy score      	0.9996555772994129               	0.9853576430984358       	0.9854529164898382       
+recall score        	0.9999005964214712               	0.8372992266508031       	0.8315184513006655       
+precision_score     	0.9914251921939681               	0.8015375854214123       	0.8023934617629889       
+{'max_depth': 10, 'eta': 0.3, 'silent': 1, 'objective': 'binary:logistic', 'eval_metric': 'auc', 'seed': '1'}
+num_round: 100
+
+---------------------------------------------------------------
+threshold = 0.1  (definido)
+
+------              	Train                    	Validation               	Test                     
+confusion matrix    	[[245100    340]         	[[80606   991]           	[[80531   991]           
+                    	 [     0  10060]]        	 [  430  2932]]          	 [  448  2858]]          
+confusion matrix pct	[[0.9592955  0.00133072] 	[[0.94876352 0.01166445] 	[[0.94934456 0.01168246] 
+                    	 [0.         0.03937378]]	 [0.00506126 0.03451076]]	 [0.00528128 0.03369171]]
+f1_score            	0.9833822091886607       	0.8049416609471517       	0.7988819007686933       
+accuracy score      	0.9986692759295499       	0.9832742852434704       	0.983036261611732        
+recall score        	1.0                      	0.8720999405116002       	0.8644888082274652       
+precision_score     	0.9673076923076923       	0.7473872036706602       	0.7425305274097168       
+{'max_depth': 10, 'eta': 0.3, 'silent': 1, 'objective': 'binary:logistic', 'eval_metric': 'auc', 'seed': '1'}
