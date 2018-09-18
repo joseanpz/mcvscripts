@@ -211,6 +211,163 @@ accuracy score      	0.9999874272351232               	1.0                      
 recall score        	1.0                              	1.0                        	0.8248259860788864         
 precision_score     	0.9997246696035242               	1.0                        	0.8191244239631337
 
+____________________________________________________________________
+threshold 0.14
+max score 0.8219653179190751
+eta 0.5
+max_depth 11
+num_round  100
+-------------------
+threshold 0.15
+max f1_score 0.8298368298368298
+eta 0.5
+max_depth 11
+num_round 200
+------------------
+------------------
+threshold 0.51
+max f1_score 0.8174322732626619
+eta 0.45
+max_depth 10
+num_round 100
+scale_pos_weight  20.2  -  sum(neg)/sum(pos)
+-------------------
+threshold 0.4
+max f1_score 0.832269297736506
+eta 0.45
+max_depth 10
+num_round 200
+scale_pos_weight  20.2  -  sum(neg)/sum(pos)
+-------------------
+threshold 0.4
+max f1_score 0.8361516034985422
+eta 0.45
+max_depth 10
+num_round 300
+scale_pos_weight  20.2  -  sum(neg)/sum(pos)
+-------------------
+threshold 0.31
+max f1_score 0.8423475258918297
+eta 0.45
+max_depth 10
+num_round 500
+scale_pos_weight  20.2  -  sum(neg)/sum(pos)
+-------------------
+threshold 0.29
+max f1_score 0.8432494279176201
+eta 0.45
+max_depth 10
+num_round 554
+scale_pos_weight  20.2  -  sum(neg)/sum(pos)
+------------------
+threshold 0.28
+max f1_score 0.8443935926773455
+eta 0.45
+max_depth 10
+num_round 566
+scale_pos_weight  20.2  -  sum(neg)/sum(pos)
+-------------------
 
----------------------------------------------------------------------
+threshold 0.29
+max f1_score 0.8443935926773455
+eta 0.45
+max_depth 10
+num_round 586
+scale_pos_weight  20.2  -  sum(neg)/sum(pos)
+
+-------------------
+threshold 0.3
+max f1_score 0.842528735632184
+eta 0.45
+max_depth 10
+num_round 700
+scale_pos_weight  20.2  -  sum(neg)/sum(pos)
+-------------------
+-------------------
+threshold 0.2
+max f1_score 0.8218694885361553
+eta 0.45
+max_depth 10
+num_round 100
+-------------------
+threshold 0.14
+max f1_score 0.8317059161401493
+eta 0.45
+max_depth 10
+num_round 200
+--------------------
+threshold 0.21
+max f1_score 0.8371817643576082
+eta 0.45
+max_depth 10
+num_round 300
+--------------------
+threshold 0.12
+max f1_score 0.8400460299194477
+eta 0.45
+max_depth 10
+num_round 500
+--------------------
+threshold 0.15
+max f1_score 0.8426573426573427
+eta 0.45
+max_depth 10
+num_round 1000
+--------------------
+threshold 0.12
+max f1_score 0.8429561200923786
+eta 0.45
+max_depth 10
+num_round 1100
+--------------------
+
+threshold 0.19
+max f1_score 0.844418052256532
+eta 0.45
+max_depth 10
+num_round 1200
+
+--------------------
+-------------------
+threshold 0.26
+max f1_score 0.8177458033573142
+eta 0.4
+max_depth 10
+num_round 100
+--------------------
+threshold 0.24
+max f1_score 0.8073503260225252
+eta 0.46
+max_depth 10
+num_round 100
+-------------------
+threshold 0.3
+max f1_score 0.8123486682808716
+eta 0.445
+max_depth 10
+num_round 100
+------------------------
+threshold 0.22
+max f1_score 0.8192627824019025
+eta 0.449
+max_depth 10
+num_round 100
+------------------------
+threshold 0.15
+max f1_score 0.8168853394181403
+eta 0.4499
+max_depth 10
+num_round 100
+____________________________________________________________________
+
+
+
+
+
+
+
+
+
+
+
 
