@@ -1,0 +1,242 @@
+
+# BOOL_INDEX = REVOLVENTE_BOOL_INDEX & (INDETERMINADOS1 | INDETERMINADOS2)
+
+thr 0.63
+------              	Train                      	Test                 
+confusion matrix    	[[6779    0]               	[[1676    0]               
+                    	 [   0 5662]]              	 [   0 1367]]              
+confusion matrix pct	[[54.48918897  0.        ] 	[[55.07722642  0.        ] 
+                    	 [ 0.         45.51081103]]	 [ 0.         44.92277358]]
+f1_score            	1.0                        	1.0                        
+accuracy score      	1.0                        	1.0                        
+recall score        	1.0                        	1.0                        
+precision_score     	1.0                        	1.0                        
+{'objective': 'binary:logistic', 'eta': 0.1, 'max_depth': 5, 'eval_metric': 'auc', 'scale_pos_weight': 1.2}
+numround 3
+
+BOOL_INDEX = REVOLVENTE_BOOL_INDEX & ~INDETERMINADOS1 & ~INDETERMINADOS2
+
+------              	Train                      	Test                 
+confusion matrix    	[[244182      0]           	[[60932     0]             
+                    	 [     0   4171]]          	 [    0  1035]]            
+confusion matrix pct	[[98.32053569  0.        ] 	[[98.32975616  0.        ] 
+                    	 [ 0.          1.67946431]]	 [ 0.          1.67024384]]
+f1_score            	1.0                        	1.0                        
+accuracy score      	1.0                        	1.0                        
+recall score        	1.0                        	1.0                        
+precision_score     	1.0                        	1.0                        
+{'objective': 'binary:logistic', 'eta': 0.1, 'max_depth': 5, 'eval_metric': 'auc', 'scale_pos_weight': 58}
+
+
+
+BOOL_INDEX = REVOLVENTE_BOOL_INDEX & ~DATRASO
+
+thr 0.38
+iter 100
+------              	Train                            	Test                 
+confusion matrix    	[[244140     44]                 	[[60726   204]             
+                    	 [     0   5614]]                	 [  237  1178]]            
+confusion matrix pct	[[9.77349699e+01 1.76142323e-02] 	[[97.40315984  0.32721148] 
+                    	 [0.00000000e+00 2.24741591e+00]]	 [ 0.38014275  1.88948593]]
+f1_score            	0.996096522356281                	0.8423310690025025         
+accuracy score      	0.999823857677003                	0.992926457614885          
+recall score        	1.0                              	0.8325088339222615         
+precision_score     	0.9922234004948746               	0.8523878437047757         
+{'objective': 'binary:logistic', 'eta': 0.3, 'max_depth': 10, 'eval_metric': 'auc', 'scale_pos_weight': 44.5}
+
+thr 0.23
+iter 150
+------              	Train                            	Test                 
+confusion matrix    	[[244183      1]                 	[[60718   212]             
+                    	 [     0   5614]]                	 [  199  1216]]            
+confusion matrix pct	[[9.77521838e+01 4.00323461e-04] 	[[97.39032801  0.34004331] 
+                    	 [0.00000000e+00 2.24741591e+00]]	 [ 0.3191916   1.95043708]]
+f1_score            	0.9999109448748775               	0.8554344002813928         
+accuracy score      	0.9999959967653864               	0.9934076509744165         
+recall score        	1.0                              	0.8593639575971731         
+precision_score     	0.9998219056099733               	0.8515406162464986         
+{'objective': 'binary:logistic', 'eta': 0.3, 'max_depth': 10, 'eval_metric': 'auc', 'scale_pos_weight': 44.5}
+
+
+thr 0.27
+iter 200
+------              	Train                      	Test                       
+confusion matrix    	[[244184      0]           	[[60749   181]             
+                    	 [     0   5614]]          	 [  218  1197]]            
+confusion matrix pct	[[97.75258409  0.        ] 	[[97.44005133  0.29031999] 
+                    	 [ 0.          2.24741591]]	 [ 0.34966717  1.9199615 ]]
+f1_score            	1.0                        	0.8571428571428572         
+accuracy score      	1.0                        	0.9936001283182292         
+recall score        	1.0                        	0.8459363957597174         
+precision_score     	1.0                        	0.8686502177068215         
+{'objective': 'binary:logistic', 'eta': 0.3, 'max_depth': 10, 'eval_metric': 'auc', 'scale_pos_weight': 44.5}
+
+thr 0.19
+iter 250
+------              	Train                      	Test                       
+confusion matrix    	[[244184      0]           	[[60737   193]             
+                    	 [     0   5614]]          	 [  200  1215]]            
+confusion matrix pct	[[97.75258409  0.        ] 	[[97.42080359  0.30956773] 
+                    	 [ 0.          2.24741591]]	 [ 0.32079557  1.94883311]]
+f1_score            	1.0                        	0.8607863974495218         
+accuracy score      	1.0                        	0.9936963669901355         
+recall score        	1.0                        	0.8586572438162544         
+precision_score     	1.0                        	0.8629261363636364         
+{'objective': 'binary:logistic', 'eta': 0.3, 'max_depth': 10, 'eval_metric': 'auc', 'scale_pos_weight': 44.5}
+
+
+
+BOOL_INDEX = REVOLVENTE_BOOL_INDEX & DATRASO
+
+
+thr 0.38
+iter 50
+------              	Train                      	Test                       
+confusion matrix    	[[6788    0]               	[[1461  206]               
+                    	 [   0 4194]]              	 [ 128  884]]              
+confusion matrix pct	[[61.81023493  0.        ] 	[[54.53527436  7.68943636] 
+                    	 [ 0.         38.18976507]]	 [ 4.7779022  32.99738708]]
+f1_score            	1.0                        	0.841103710751665          
+accuracy score      	1.0                        	0.8753266144083613         
+recall score        	1.0                        	0.8735177865612648         
+precision_score     	1.0                        	0.8110091743119267         
+{'objective': 'binary:logistic', 'eta': 0.3, 'max_depth': 10, 'eval_metric': 'auc', 'scale_pos_weight': 1.62}
+
+
+thr 0.39
+iter 100
+------              	Train                      	Test                       
+confusion matrix    	[[6788    0]               	[[1497  170]               
+                    	 [   0 4194]]              	 [ 134  878]]              
+confusion matrix pct	[[61.81023493  0.        ] 	[[55.87905935  6.34565136] 
+                    	 [ 0.         38.18976507]]	 [ 5.00186637 32.77342292]]
+f1_score            	1.0                        	0.8524271844660193         
+accuracy score      	1.0                        	0.8865248226950354         
+recall score        	1.0                        	0.8675889328063241         
+precision_score     	1.0                        	0.8377862595419847         
+{'objective': 'binary:logistic', 'eta': 0.3, 'max_depth': 10, 'eval_metric': 'auc', 'scale_pos_weight': 1.62}
+
+
+thr 0.49
+iter 150
+------              	Train                      	Test                       
+confusion matrix    	[[6788    0]               	[[1539  128]               
+                    	 [   0 4194]]              	 [ 155  857]]              
+confusion matrix pct	[[61.81023493  0.        ] 	[[57.44680851  4.7779022 ] 
+                    	 [ 0.         38.18976507]]	 [ 5.78574095 31.98954834]]
+f1_score            	1.0                        	0.8582874311467199         
+accuracy score      	1.0                        	0.8943635684957073         
+recall score        	1.0                        	0.8468379446640316         
+precision_score     	1.0                        	0.8700507614213198         
+{'objective': 'binary:logistic', 'eta': 0.3, 'max_depth': 10, 'eval_metric': 'auc', 'scale_pos_weight': 1.62}
+
+
+
+
+
+SUBINDETERMINADOS2 = ~SUBDATRASO & SUBMALOS
+train_list = (rand_split < 0.8) & ~SUBINDETERMINADOS2
+
+thr 0.56
+iter 50
+------              	Train                            	Test                       
+confusion matrix    	[[250914     72]                 	[[62259   324]             
+                    	 [     0   4139]]                	 [ 1485   960]]            
+confusion matrix pct	[[9.83494366e+01 2.82214601e-02] 	[[95.74183429  0.49824691] 
+                    	 [0.00000000e+00 1.62234199e+00]]	 [ 2.28363167  1.47628714]]
+f1_score            	0.9913772455089821               	0.5148833467417538         
+accuracy score      	0.9997177853993141               	0.9721812142461709         
+recall score        	1.0                              	0.39263803680981596        
+precision_score     	0.9829019235336025               	0.7476635514018691         
+{'objective': 'binary:logistic', 'eta': 0.3, 'max_depth': 10, 'eval_metric': 'auc', 'scale_pos_weight': 26.7}
+
+
+thr 0.43
+iter 100
+------              	Train                      	Test                       
+confusion matrix    	[[250986      0]           	[[62307   276]             
+                    	 [     0   4139]]          	 [ 1471   974]]            
+confusion matrix pct	[[98.37765801  0.        ] 	[[95.81564864  0.42443255] 
+                    	 [ 0.          1.62234199]]	 [ 2.26210248  1.49781633]]
+f1_score            	1.0                        	0.5271989174560215         
+accuracy score      	1.0                        	0.9731346496893646         
+recall score        	1.0                        	0.3983640081799591         
+precision_score     	1.0                        	0.7792                     
+{'objective': 'binary:logistic', 'eta': 0.3, 'max_depth': 10, 'eval_metric': 'auc', 'scale_pos_weight': 26.7}
+
+
+-------------
+thr 0.28
+iter 50
+------              	Train                            	Test                       
+confusion matrix    	[[249975   1011]                 	[[62058   525]             
+                    	 [    40   4099]]                	 [ 1476   969]]            
+confusion matrix pct	[[9.79813817e+01 3.96276335e-01] 	[[95.43273667  0.80734453] 
+                    	 [1.56785889e-02 1.60666340e+00]]	 [ 2.26979147  1.49012733]]
+f1_score            	0.886366093631744                	0.49200304645849197        
+accuracy score      	0.9958804507594317               	0.9692286399704743         
+recall score        	0.9903358299106064               	0.39631901840490796        
+precision_score     	0.8021526418786693               	0.6485943775100401         
+{'objective': 'binary:logistic', 'eta': 0.1, 'max_depth': 12, 'gamma': 0.001, 'min_child_weight': 10.108909877670685, 'max_delta_step': 2.4592238788322622, 'subsample': 1, 'colsample_bytree': 0.4, 'seed': 1}
+
+thr 0.36
+iter 100
+------              	Train                            	Test                       
+confusion matrix    	[[250775    211]                 	[[62311   272]             
+                    	 [    27   4112]]                	 [ 1514   931]]            
+confusion matrix pct	[[9.82949535e+01 8.27045566e-02] 	[[95.82179984  0.41828136] 
+                    	 [1.05830475e-02 1.61175894e+00]]	 [ 2.32822784  1.43169096]]
+f1_score            	0.9718742614039234               	0.5104166666666666         
+accuracy score      	0.9990671239588437               	0.9725349080396137         
+recall score        	0.9934766851896594               	0.38077709611451943        
+precision_score     	0.9511913023363405               	0.7738985868661679         
+{'objective': 'binary:logistic', 'eta': 0.1, 'max_depth': 12, 'gamma': 0.001, 'min_child_weight': 10.108909877670685, 'max_delta_step': 2.4592238788322622, 'subsample': 1, 'colsample_bytree': 0.4, 'seed': 1}
+
+
+thr 0.28
+iter 150
+------              	Train                            	Test                       
+confusion matrix    	[[250783    203]                 	[[62258   325]             
+                    	 [     2   4137]]                	 [ 1473   972]]            
+confusion matrix pct	[[9.82980892e+01 7.95688388e-02] 	[[95.74029649  0.49978471] 
+                    	 [7.83929446e-04 1.62155806e+00]]	 [ 2.26517808  1.49474073]]
+f1_score            	0.975822620592051                	0.5195082843399251         
+accuracy score      	0.9991964723174914               	0.9723503721473826         
+recall score        	0.9995167914955303               	0.39754601226993863        
+precision_score     	0.9532258064516129               	0.7494217424826523         
+{'objective': 'binary:logistic', 'eta': 0.1, 'max_depth': 12, 'gamma': 0.001, 'min_child_weight': 10.108909877670685, 'max_delta_step': 2.4592238788322622, 'subsample': 1, 'colsample_bytree': 0.4, 'seed': 1}
+
+
+
+
+thr 0.6900000000000001
+iter 50
+------              	Train                      	Test                       
+confusion matrix    	[[242405   1854]           	[[60283  2300]             
+                    	 [   287   9503]]          	 [  483  1962]]            
+confusion matrix pct	[[95.41663222  0.72978048] 	[[92.70314326  3.53693793] 
+                    	 [ 0.11297033  3.74061697]]	 [ 0.74275697  3.01716184]]
+f1_score            	0.8987563247741996         	0.58506038467273           
+accuracy score      	0.99157249192085           	0.9572030509934182         
+recall score        	0.9706843718079673         	0.8024539877300614         
+precision_score     	0.8367526635555165         	0.46034725480994837        
+{'objective': 'binary:logistic', 'eta': 0.1, 'max_depth': 10, 'eval_metric': 'auc', 'scale_pos_weight': 22}
+
+
+thr 0.63
+iter 100
+------              	Train                            	Test                       
+confusion matrix    	[[243367    892]                 	[[60485  2098]             
+                    	 [    19   9771]]                	 [  332  2113]]            
+confusion matrix pct	[[9.57952993e+01 3.51113368e-01] 	[[93.01377868  3.22630252] 
+                    	 [7.47887219e-03 3.84610843e+00]]	 [ 0.5105493   3.2493695 ]]
+f1_score            	0.9554588568914095               	0.6349158653846154         
+accuracy score      	0.9964140775992033               	0.9626314818232146         
+recall score        	0.9980592441266598               	0.8642126789366054         
+precision_score     	0.9163462440213823               	0.5017810496319164         
+{'objective': 'binary:logistic', 'eta': 0.1, 'max_depth': 10, 'eval_metric': 'auc', 'scale_pos_weight': 22}
+
+
+
+
+

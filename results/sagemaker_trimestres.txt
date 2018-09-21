@@ -1,0 +1,218 @@
+---- trimestre 4 ----
+
+thr 0.42
+iter 50
+------              	Train                            	Test                       
+confusion matrix    	[[72237     1]                   	[[17918   127]             
+                    	 [    0  2688]]                  	 [  146   535]]            
+confusion matrix pct	[[9.64111256e+01 1.33465019e-03] 	[[95.68514365  0.67820143] 
+                    	 [0.00000000e+00 3.58753971e+00]]	 [ 0.77966464  2.85699028]]
+f1_score            	0.9998140226892319               	0.796723752792256          
+accuracy score      	0.9999866534981181               	0.9854213393143223         
+recall score        	1.0                              	0.7856093979441997         
+precision_score     	0.9996281145407214               	0.8081570996978852         
+{'objective': 'binary:logistic', 'eta': 0.3, 'max_depth': 10, 'eval_metric': 'auc', 'scale_pos_weight': 17}
+
+
+
+--- trimestre 3 ----
+
+
+thr 0.48
+iter 50
+------              	Train                            	Test                       
+confusion matrix    	[[87325    42]                   	[[21819   162]             
+                    	 [    0  3698]]                  	 [  167   757]]            
+confusion matrix pct	[[9.58930434e+01 4.61209027e-02] 	[[95.25867714  0.70726916] 
+                    	 [0.00000000e+00 4.06083567e+00]]	 [ 0.72909845  3.30495525]]
+f1_score            	0.9943533207851573               	0.8214867064568638         
+accuracy score      	0.9995387909734805               	0.9856363239467365         
+recall score        	1.0                              	0.8192640692640693         
+precision_score     	0.9887700534759358               	0.823721436343852          
+{'objective': 'binary:logistic', 'eta': 0.3, 'max_depth': 10, 'eval_metric': 'auc', 'scale_pos_weight': 17}
+
+
+
+---- trimestre 2 ----
+
+thr 0.59
+iter 50
+------              	Train                            	Test                       
+confusion matrix    	[[84538    14]                   	[[21112   119]             
+                    	 [    0  3672]]                  	 [  211   712]]            
+confusion matrix pct	[[9.58219985e+01 1.58686979e-02] 	[[95.29656044  0.53714905] 
+                    	 [0.00000000e+00 4.16213275e+00]]	 [ 0.95242394  3.21386657]]
+f1_score            	0.9980973090513727               	0.8118586088939567         
+accuracy score      	0.9998413130214001               	0.9851042701092354         
+recall score        	1.0                              	0.771397616468039          
+precision_score     	0.9962018448182312               	0.8567990373044525         
+{'objective': 'binary:logistic', 'eta': 0.3, 'max_depth': 10, 'eval_metric': 'auc', 'scale_pos_weight': 17}
+
+
+
+----  trimestre 1  ------
+
+thr 0.53
+iter 50
+------              	Train                            	Test                       
+confusion matrix    	[[82448     8]                   	[[20579   110]             
+                    	 [    0  3305]]                  	 [  196   641]]            
+confusion matrix pct	[[9.61369387e+01 9.32824944e-03] 	[[95.60066896  0.51100994] 
+                    	 [0.00000000e+00 3.85373305e+00]]	 [ 0.9105268   2.9777943 ]]
+f1_score            	0.9987911755817468               	0.8073047858942065         
+accuracy score      	0.9999067175056261               	0.9857846325373967         
+recall score        	1.0                              	0.7658303464755077         
+precision_score     	0.9975852701479022               	0.8535286284953395         
+{'objective': 'binary:logistic', 'eta': 0.3, 'max_depth': 10, 'eval_metric': 'auc', 'scale_pos_weight': 17}
+
+
+
+
+
+---- trimestre 1,2 ----
+
+thr 0.63
+iter 50
+------              	Train                            	Test                       
+confusion matrix    	[[166824    161]                 	[[41715   228]             
+                    	 [     1   6965]]                	 [  305  1466]]            
+confusion matrix pct	[[9.59028692e+01 9.25547999e-02] 	[[95.42709429  0.52157204] 
+                    	 [5.74874534e-04 4.00400113e+00]]	 [ 0.69771698  3.35361669]]
+f1_score            	0.9885041158103889               	0.8461760461760461         
+accuracy score      	0.9990687032555144               	0.9878071098503912         
+recall score        	0.9998564455928797               	0.8277809147374364         
+precision_score     	0.9774066797642437               	0.8654073199527745         
+{'objective': 'binary:logistic', 'eta': 0.3, 'max_depth': 10, 'eval_metric': 'auc', 'scale_pos_weight': 17}
+
+thr 0.5
+iter 100
+------              	Train                            	Test                       
+confusion matrix    	[[166982      3]                 	[[41758   185]             
+                    	 [     0   6966]]                	 [  243  1528]]            
+confusion matrix pct	[[9.59936994e+01 1.72462360e-03] 	[[95.52546095  0.42320538] 
+                    	 [0.00000000e+00 4.00457600e+00]]	 [ 0.55588599  3.49544768]]
+f1_score            	0.9997847147470399               	0.8771526980482204         
+accuracy score      	0.999982753763991                	0.9902090863338976         
+recall score        	1.0                              	0.862789384528515          
+precision_score     	0.9995695221696083               	0.8920023350846468         
+{'objective': 'binary:logistic', 'eta': 0.3, 'max_depth': 10, 'eval_metric': 'auc', 'scale_pos_weight': 17}
+
+thr 0.47000000000000003
+iter 150
+------              	Train                  	Test                       
+confusion matrix    	[[166985      0]       	[[41786   157]             
+                    	 [     0   6966]]      	 [  228  1543]]            
+confusion matrix pct	[[95.995424  0.      ] 	[[95.58951366  0.35915267] 
+                    	 [ 0.        4.004576]]	 [ 0.52157204  3.52976163]]
+f1_score            	1.0                    	0.8890809564966868         
+accuracy score      	1.0                    	0.9911927528938098         
+recall score        	1.0                    	0.8712591756070017         
+precision_score     	1.0                    	0.9076470588235294         
+{'objective': 'binary:logistic', 'eta': 0.3, 'max_depth': 10, 'eval_metric': 'auc', 'scale_pos_weight': 17}
+
+
+thr 0.5
+iter 200
+------              	Train                  	Test                       
+confusion matrix    	[[166985      0]       	[[41807   136]             
+                    	 [     0   6966]]      	 [  230  1541]]            
+confusion matrix pct	[[95.995424  0.      ] 	[[95.63755319  0.31111314] 
+                    	 [ 0.        4.004576]]	 [ 0.52614723  3.52518644]]
+f1_score            	1.0                    	0.8938515081206496         
+accuracy score      	1.0                    	0.9916273962574919         
+recall score        	1.0                    	0.8701298701298701         
+precision_score     	1.0                    	0.9189028026237328         
+{'objective': 'binary:logistic', 'eta': 0.3, 'max_depth': 10, 'eval_metric': 'auc', 'scale_pos_weight': 17}
+
+
+
+----------------------------------------------------------------------------------------------
+thr 0.29          trimestre 3, 4 evaluados con el entrenamiento de trimestre 1, 2.
+iter 200
+------              	Train                      	Test                       
+confusion matrix    	[[157879   1635]           	[[39752   365]             
+                    	 [  2555   3848]]          	 [  635   953]]            
+confusion matrix pct	[[95.15540903  0.98543248] 	[[95.31710826  0.87519482] 
+                    	 [ 1.53992659  2.31923191]]	 [ 1.52259921  2.28509771]]
+f1_score            	0.6474844354703012         	0.6558843771507226         
+accuracy score      	0.9747464093492529         	0.9760220597050714         
+recall score        	0.6009682961111978         	0.6001259445843828         
+precision_score     	0.7018055808863761         	0.7230652503793626         
+{'objective': 'binary:logistic', 'eta': 0.3, 'max_depth': 10, 'eval_metric': 'auc', 'scale_pos_weight': 17}
+-----------------------------------------------------------------------------------------
+
+
+
+trimestre 3,4
+
+thr 0.55
+iter 50
+------              	Train                      	Test                       
+confusion matrix    	[[159325    189]           	[[39847   270]             
+                    	 [     0   6403]]          	 [  264  1324]]            
+confusion matrix pct	[[96.02692913  0.11391238] 	[[95.54489869  0.64740439] 
+                    	 [ 0.          3.85915849]]	 [ 0.63301762  3.1746793 ]]
+f1_score            	0.9854559445940747         	0.8321810182275299         
+accuracy score      	0.9988608762212432         	0.9871957798825081         
+recall score        	1.0                        	0.8337531486146096         
+precision_score     	0.9713288834951457         	0.8306148055207027         
+{'objective': 'binary:logistic', 'eta': 0.3, 'max_depth': 10, 'eval_metric': 'auc', 'scale_pos_weight': 17}
+
+
+thr 0.49
+iter 100
+------              	Train                      	Test                       
+confusion matrix    	[[159514      0]           	[[39956   161]             
+                    	 [     0   6403]]          	 [  217  1371]]            
+confusion matrix pct	[[96.14084151  0.        ] 	[[95.80625824  0.38604484] 
+                    	 [ 0.          3.85915849]]	 [ 0.5203213   3.28737561]]
+f1_score            	1.0                        	0.8788461538461538         
+accuracy score      	1.0                        	0.9909363385685169         
+recall score        	1.0                        	0.8633501259445844         
+precision_score     	1.0                        	0.8949086161879896         
+{'objective': 'binary:logistic', 'eta': 0.3, 'max_depth': 10, 'eval_metric': 'auc', 'scale_pos_weight': 17}
+
+
+thr 0.34
+iter 150
+------              	Train                      	Test                       
+confusion matrix    	[[159514      0]           	[[39929   188]             
+                    	 [     0   6403]]          	 [  168  1420]]            
+confusion matrix pct	[[96.14084151  0.        ] 	[[95.7415178   0.45078528] 
+                    	 [ 0.          3.85915849]]	 [ 0.4028294   3.40486752]]
+f1_score            	1.0                        	0.8886107634543179         
+accuracy score      	1.0                        	0.9914638532550054         
+recall score        	1.0                        	0.8942065491183879         
+precision_score     	1.0                        	0.8830845771144279         
+{'objective': 'binary:logistic', 'eta': 0.3, 'max_depth': 10, 'eval_metric': 'auc', 'scale_pos_weight': 17}
+
+
+thr 0.34
+iter 200
+------              	Train                      	Test                       
+confusion matrix    	[[159514      0]           	[[39938   179]             
+                    	 [     0   6403]]          	 [  163  1425]]            
+confusion matrix pct	[[96.14084151  0.        ] 	[[95.76309795  0.42920513] 
+                    	 [ 0.          3.85915849]]	 [ 0.39084043  3.41685649]]
+f1_score            	1.0                        	0.8928571428571429         
+accuracy score      	1.0                        	0.9917995444191344         
+recall score        	1.0                        	0.8973551637279596         
+precision_score     	1.0                        	0.8884039900249376         
+{'objective': 'binary:logistic', 'eta': 0.3, 'max_depth': 10, 'eval_metric': 'auc', 'scale_pos_weight': 17}
+
+
+----------------------------------------------------------------------     
+thr 0.1                  trimestre 1,2 evaluados con el entrenamiento de trimestre 13,4.
+iter 200
+------              	Train                      	Test                       
+confusion matrix    	[[163820   3165]           	[[41147   796]             
+                    	 [  2653   4313]]          	 [  638  1133]]            
+confusion matrix pct	[[94.1759461   1.8194779 ] 	[[94.1277394   1.82092693] 
+                    	 [ 1.52514214  2.47943386]]	 [ 1.45948666  2.59184701]]
+f1_score            	0.5972029908612573         	0.6124324324324324         
+accuracy score      	0.9665537996332301         	0.967195864025255          
+recall score        	0.6191501579098478         	0.639751552795031          
+precision_score     	0.5767584915752875         	0.5873509590461379         
+{'objective': 'binary:logistic', 'eta': 0.3, 'max_depth': 10, 'eval_metric': 'auc', 'scale_pos_weight': 17}
+
+---------------------------------------------------------------------------
