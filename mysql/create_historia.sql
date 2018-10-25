@@ -14,13 +14,27 @@ CREATE TABLE DBMYMWORK.JEA_MCV_HISTORIA
 
 
 -- copy historia."HISTORIA_201401_201804" to '/tmp/historia_201401_201804.csv' delimiter '|';
+-- MDB-TOOLS 
+-- mdb-export -D '%Y-%m-%d %H:%M:%S' -H -d '|' <file> <table> > <csv-file>      (overwrite)
+-- mdb-export -D '%Y-%m-%d %H:%M:%S' -H -d '|' <file> <table> >> <csv-file>      (append)
 -- rsync -avz /tmp/historia_201401_201804.csv joseangel@10.24.25.196:/data/mysql-files/joseangel/
 LOAD DATA INFILE '/data/mysql-files/joseangel/historia_201401_201804.csv'
 INTO TABLE DBMYMWORK.JEA_MCV_HISTORIA
 CHARACTER SET UTF8
-FIELDS TERMINATED BY '|'
-LINES TERMINATED BY '\n';
-
+FIELDS TERMINATED BY '|' ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+(@a,@b,@c,@d,@e,@f,@g,@h,@i,@j)
+SET
+CalificacionCartera = nullif(@a,''),
+FechaConsulta = nullif(@b,''),
+Folio = nullif(@c,''),
+Periodo = nullif(@d,''),
+RFC = nullif(@e,''),
+Vencido1a29 = nullif(@f,''),
+Vencido30a59 = nullif(@g,''),
+Vencido60a89 = nullif(@h,''),
+VencidoMas89 = nullif(@i,''),
+VigenteH = nullif(@j,'');
 
 
 CREATE INDEX DBMYMWORK_JEA_MCV_HISTORIA_RFC_IDX 
