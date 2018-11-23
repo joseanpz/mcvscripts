@@ -1,0 +1,129 @@
+estrategia de muestreo 1
+extracción de variables faltantes > 0.2 (proporción)
+imputación con mediana
+escalamiento con "RobustScaler"
+(datos renovados, nulos obs corregidos)
+
+validacion > 201705
+
+thr 0.27
+iter 70
+------              	Train                      	Test                       	Validation                 
+confusion matrix    	[[49795   760]             	[[12384   232]             	[[77435  1665]             
+                    	 [  739  1341]]            	 [  225   277]]            	 [ 1741  1536]]            
+confusion matrix pct	[[94.60435072  1.44390615] 	[[94.40463485  1.76856228] 	[[94.00075264  2.02119524] 
+                    	 [ 1.40400874  2.5477344 ]]	 [ 1.71520049  2.11160238]]	 [ 2.113454    1.86459813]]
+f1_score            	0.6414733317388185         	0.5479723046488625         	0.4742204384069157         
+accuracy score      	0.9715208511446756         	0.9651623723128526         	0.9586535076538354         
+recall score        	0.6447115384615385         	0.5517928286852589         	0.46872139151663106        
+precision_score     	0.638267491670633          	0.5442043222003929         	0.47985004686035615        
+{'objective': 'binary:logistic', 'eta': 0.3, 'max_depth': 5, 'eval_metric': 'auc', 'alpha': 30, 'lambda': 1, 'gamma': 0.1, 'scale_pos_weight': 1, 'max_delta_step': 5, 'min_child_weight': 1}
+
+Nota: En la iteraci+on 56 deja de actualizarse el modelo
+
+
+-----------------------------------------------------
+
+validacion = 201706
+
+thr 0.27
+iter 70
+------              	Validation                 
+confusion matrix    	[[12670   290]             
+                    	 [  302   254]]            
+confusion matrix pct	[[93.7407517   2.14560521] 
+                    	 [ 2.23438887  1.87925422]]
+f1_score            	0.46181818181818185        
+accuracy score      	0.9562000591891092         
+recall score        	0.4568345323741007         
+precision_score     	0.46691176470588236        
+
+
+
+-----------------------------------------------------
+
+validacion = 201707
+
+thr 0.27
+iter 70
+------              	Validation                 
+confusion matrix    	[[12732   316]             
+                    	 [  309   277]]            
+confusion matrix pct	[[93.38418659  2.31773507] 
+                    	 [ 2.26639284  2.03168549]]
+f1_score            	0.46988973706530957        
+accuracy score      	0.9541587208449465         
+recall score        	0.4726962457337884         
+precision_score     	0.4671163575042159         
+
+
+
+-----------------------------------------------------
+
+validacion = 201708
+
+thr 0.27
+iter 70
+------              	Validation                 
+confusion matrix    	[[12818   279]             
+                    	 [  300   278]]            
+confusion matrix pct	[[93.73308958  2.04021938] 
+                    	 [ 2.19378428  2.03290676]]
+f1_score            	0.48986784140969164        
+accuracy score      	0.9576599634369287         
+recall score        	0.4809688581314879         
+precision_score     	0.4991023339317774         
+
+
+
+-----------------------------------------------------
+
+validacion = 201709
+
+thr 0.27
+iter 70
+------              	Validation                 
+confusion matrix    	[[12945   301]             
+                    	 [  287   247]]            
+confusion matrix pct	[[93.94049347  2.18432511] 
+                    	 [ 2.08272859  1.79245283]]
+f1_score            	0.4565619223659889         
+accuracy score      	0.9573294629898403         
+recall score        	0.46254681647940077        
+precision_score     	0.45072992700729925        
+
+
+
+-----------------------------------------------------
+
+validacion = 201710
+
+thr 0.27
+iter 70
+------              	Validation                 
+confusion matrix    	[[13142   223]             
+                    	 [  273   242]]            
+confusion matrix pct	[[94.68299712  1.60662824] 
+                    	 [ 1.96685879  1.74351585]]
+f1_score            	0.4938775510204081         
+accuracy score      	0.9642651296829972         
+recall score        	0.46990291262135925        
+precision_score     	0.5204301075268817         
+
+
+
+-----------------------------------------------------
+
+validacion = 201711
+
+thr 0.27
+iter 70
+------              	Validation                 
+confusion matrix    	[[13128   256]             
+                    	 [  270   238]]            
+confusion matrix pct	[[94.5004319   1.84278722] 
+                    	 [ 1.94356464  1.71321624]]
+f1_score            	0.47504990019960075        
+accuracy score      	0.9621364814281601         
+recall score        	0.468503937007874          
+precision_score     	0.4817813765182186         
