@@ -1,0 +1,28 @@
+Creación de universo UEN PEQ.
+
+
+El primer paso es actualizar la tabla DBMYMWORK.JEA_MCV_COLOCACION usando el script de actualización en 
+"mysql/create_colocacion.sql". También regeneramos la tabla DBMYMWORK.JEA_MCV_CARTERA_CREDITICIA_LINEA usando
+el script "mysql/create_cartera_crediticia_linea.sql".
+
+
+Como segundo paso se genera una tabla intermedia de llaves, DBMYMWORK.JEA_MCV_UNIVERSO_LLAVES, donde se 
+filtra, de la tabla DBMYMWORK.JEA_MCV_COLOCACION, el segmento de pequeña empresa.
+
+El tercer paso es generar nuestra tabla universo DBMYMWORK.JEA_MCV_UNIVERSO usando el script "mysql/create_univers.sql"
+el cual toma los datos de DBMYMWORK.JEA_MCV_CARTERA_CREDITICIA_LINEA para los registros con llaves en 
+DBMYMWORK.JEA_MCV_UNIVERSO_LLAVES; además se añaden las banderas CCI, SOBREGIRO, INTERCOMPANIA, CARTERA_ADQUIRIDA.
+
+
+Después Se crearon cuatro catálogos, que dependen de este universo, para la creación de las banderas "REESTRUCTURA" Y "REVOLVENTE".
+ - DBMYMWORK.JEA_MCV_CATALOGO_LIN_NAC_VENC
+ - DBMYMWORK.JEA_MCV_CATALOGO_LIN_REEST
+ - DBMYMWORK.JEA_MCV_CATALOGO_NO_REVOLVENTE
+ - DBMYMWORK.JEA_MCV_CATALOGO_REVOLVENTE
+usando los scripts "mysql/create_catalogo_lin_nac_venc_sql", "mysql/create_catalogo_lin_reest.sql", 
+"mysql/create_catalogo_no_revolvente.sql" y "mysql/create_catalogo_revolvente.sql".
+
+Por último se añaden las banderas "REESTRUCTURA" Y "REVOLVENTE" a  
+
+
+
