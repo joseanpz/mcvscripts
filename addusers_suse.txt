@@ -1,0 +1,15 @@
+
+JOSE ANGEL ESPINOZA ARCE <jose.espinoza@banregio.com>
+jue., 8 nov. 15:29
+para Jose
+
+$useradd -c "Marcos Chavez" -G mysql,ftp-users,rstudio_users mchavez
+# password is set next
+
+$passwd mchavez
+password: m4rC059#
+
+CREATE USER 'mchavez'@'%' IDENTIFIED BY 'm4rC059#';
+GRANT FILE ON *.* TO 'mchavez'@'%'
+GRANT SELECT ON `DBRSKDATAMART`.* TO 'mchavez'@'%'
+GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER, EXECUTE, CREATE ROUTINE, ALTER ROUTINE ON `DBMYMWORK`.* TO 'mchavez'@'%'
