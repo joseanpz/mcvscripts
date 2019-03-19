@@ -36,11 +36,13 @@ por rfc con el script "create_universo_rfc_agg.sql"
 
 se genera nuestra tabla de universo DBMYMWORK.JEA_MCV_UNIVERSO con el script "create_universo.sql"
 
-
+Se agrega campo de tipo de credito, neceario para calcular las variables relativas a los dias de atraso
+(create_universo.sql, TODO: Decidir si se agrega el campo desde el preuniverso)
 
 TODO: AGREGAR LOGICA DE FECHA_BC, FOLIO (está lógica se encuentra en JAT_MCV_UNIVERSO_201806_201810_v3.sql)
 se colocó en "create_universo.sql" 
 
+Se  agregan campos de buró FECHA_BC y FOLIO, necesarios para la genaracion de variables de buró (create_universo.sql).
 
 El universo actual es como:
 select COUNT(*) FROM JEA_MCV_UNIVERSO
