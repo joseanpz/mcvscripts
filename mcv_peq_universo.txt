@@ -2,14 +2,17 @@ Creación de universo UEN PEQ.
 
 
 El primer paso es actualizar la tabla DBMYMWORK.JEA_MCV_COLOCACION usando el script de actualización en 
-"mysql/create_colocacion.sql". También regeneramos la tabla DBMYMWORK.JEA_MCV_CARTERA_CREDITICIA_LINEA usando
+"mysql/create_colocacion.sql". TODO: actualizar el script para usar datamart (falta la tabla de colocacion en datamart) 
+actualmente se pide una extracción de tabelau.
+
+Como segundo paso se genera una tabla intermedia de llaves, DBMYMWORK.JEA_MCV_UNIVERSO_LLAVES, donde se 
+filtra, de la tabla DBMYMWORK.JEA_MCV_COLOCACION, el segmento de pequeña empresa "create_universo_llaves.sql".
+
+Después regeneramos la tabla DBMYMWORK.JEA_MCV_CARTERA_CREDITICIA_LINEA usando
 el script "mysql/create_cartera_crediticia_linea.sql".
 
 
-Como segundo paso se genera una tabla intermedia de llaves, DBMYMWORK.JEA_MCV_UNIVERSO_LLAVES, donde se 
-filtra, de la tabla DBMYMWORK.JEA_MCV_COLOCACION, el segmento de pequeña empresa.
-
-El tercer paso es generar nuestra tabla universo DBMYMWORK.JEA_MCV_UNIVERSO usando el script "mysql/create_univers.sql"
+El cuarto paso es generar nuestra tabla preuniverso DBMYMWORK.JEA_MCV_PREUNIVERSO usando el script "mysql/create_preuniverso.sql"
 el cual toma los datos de DBMYMWORK.JEA_MCV_CARTERA_CREDITICIA_LINEA para los registros con llaves en 
 DBMYMWORK.JEA_MCV_UNIVERSO_LLAVES; además se añaden las banderas CCI, SOBREGIRO, INTERCOMPANIA, CARTERA_ADQUIRIDA.
 
@@ -22,7 +25,32 @@ Después Se crearon cuatro catálogos, que dependen de este universo, para la crea
 usando los scripts "mysql/create_catalogo_lin_nac_venc_sql", "mysql/create_catalogo_lin_reest.sql", 
 "mysql/create_catalogo_no_revolvente.sql" y "mysql/create_catalogo_revolvente.sql".
 
-Por último se añaden las banderas "REESTRUCTURA" Y "REVOLVENTE" a  
+Por último se añaden las banderas "REESTRUCTURA" Y "REVOLVENTE" a  DBMYMWORK.JEA_MCV_PREUNIVERSO
+
+Se crea DBMYMWORK.JEA_MCV_UNIVERSO_SDOVDO "create_universo_sdovdo.sql"
+
+se crea DBMYMWORK.JEA_MCV_UNIVERSO_WDW  "create_universo_wdw"
+
+se crea la tabla DBMYMWORK.JEA_MCV_UNIVERSO_RFC_AGG para obtener banderas de saldos vencidos 
+por rfc con el script "create_universo_rfc_agg.sql"
+
+se genera nuestra tabla de universo DBMYMWORK.JEA_MCV_UNIVERSO con el script "create_universo.sql"
+
+
+
+TODO: AGREGAR LOGICA DE FECHA_BC, FOLIO (está lógica se encuentra en JAT_MCV_UNIVERSO_201806_201810_v3.sql)
+se colocó en "create_universo.sql" 
+
+
+El universo actual es como:
+select COUNT(*) FROM JEA_MCV_UNIVERSO
+WHERE FECHA='201812' 
+AND CCI + SOBREGIRO + INTERCOMPANIA + CARTERA_ADQUIRIDA + REESTRUCTURA = 0 
+AND LABEL <> 0 
+AND (SUBSTR(FECHA,1,4)-YEAR(FECHA_BC))*12 + SUBSTR(FECHA,5,2) - MONTH(FECHA_BC) BETWEEN 0 AND 4
+-- GROUP BY 1
+
+además se genero la bander "TDCEMP"...
 
 
 

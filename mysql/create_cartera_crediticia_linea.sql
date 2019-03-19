@@ -11,7 +11,6 @@ SELECT
 FROM DBRSKDATAMART.Tbl_CarteraCrediticia A
 WHERE LINEA IS NOT NULL AND LINEA != '';
 
-
 -- Es preferibke correr la creación de la tabla y despues la creacion del indice 
 CREATE INDEX DBMYMWORK__CARTERA_CREDITICA_LINEA_fecha_idx
 ON DBMYMWORK.JEA_MCV_CARTERA_CREDITICIA_LINEA (FECHA);
