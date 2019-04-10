@@ -1,23 +1,23 @@
 Creación de universo UEN PEQ.
 
 
-El primer paso es actualizar la tabla DBMYMWORK.JEA_MCV_COLOCACION usando el script de actualización en 
+1. El primer paso es actualizar la tabla DBMYMWORK.JEA_MCV_COLOCACION usando el script de actualización en 
 "mysql/create_colocacion.sql". TODO: actualizar el script para usar datamart (falta la tabla de colocacion en datamart) 
 actualmente se pide una extracción de tabelau.
 
-Como segundo paso se genera una tabla intermedia de llaves, DBMYMWORK.JEA_MCV_UNIVERSO_LLAVES, donde se 
+2. Como segundo paso se genera una tabla intermedia de llaves, DBMYMWORK.JEA_MCV_UNIVERSO_LLAVES, donde se 
 filtra, de la tabla DBMYMWORK.JEA_MCV_COLOCACION, el segmento de pequeña empresa "create_universo_llaves.sql".
 
-Después regeneramos la tabla DBMYMWORK.JEA_MCV_CARTERA_CREDITICIA_LINEA usando
+3. Después regeneramos la tabla DBMYMWORK.JEA_MCV_CARTERA_CREDITICIA_LINEA usando
 el script "mysql/create_cartera_crediticia_linea.sql".
 
 
-El cuarto paso es generar nuestra tabla preuniverso DBMYMWORK.JEA_MCV_PREUNIVERSO usando el script "mysql/create_preuniverso.sql"
+4. El cuarto paso es generar nuestra tabla preuniverso DBMYMWORK.JEA_MCV_PREUNIVERSO usando el script "mysql/create_preuniverso.sql"
 el cual toma los datos de DBMYMWORK.JEA_MCV_CARTERA_CREDITICIA_LINEA para los registros con llaves en 
 DBMYMWORK.JEA_MCV_UNIVERSO_LLAVES; además se añaden las banderas CCI, SOBREGIRO, INTERCOMPANIA, CARTERA_ADQUIRIDA.
 
 
-Después Se crearon cuatro catálogos, que dependen de este universo, para la creación de las banderas "REESTRUCTURA" Y "REVOLVENTE".
+Notas: Después Se crearon cuatro catálogos, que dependen de este universo, para la creación de las banderas "REESTRUCTURA" Y "REVOLVENTE".
  - DBMYMWORK.JEA_MCV_CATALOGO_LIN_NAC_VENC
  - DBMYMWORK.JEA_MCV_CATALOGO_LIN_REEST
  - DBMYMWORK.JEA_MCV_CATALOGO_NO_REVOLVENTE
@@ -25,24 +25,27 @@ Después Se crearon cuatro catálogos, que dependen de este universo, para la crea
 usando los scripts "mysql/create_catalogo_lin_nac_venc_sql", "mysql/create_catalogo_lin_reest.sql", 
 "mysql/create_catalogo_no_revolvente.sql" y "mysql/create_catalogo_revolvente.sql".
 
-Por último se añaden las banderas "REESTRUCTURA" Y "REVOLVENTE" a  DBMYMWORK.JEA_MCV_PREUNIVERSO
+4'. Por último se añaden las banderas "REESTRUCTURA" Y "REVOLVENTE" a  DBMYMWORK.JEA_MCV_PREUNIVERSO
 
-Se crea DBMYMWORK.JEA_MCV_UNIVERSO_SDOVDO "create_universo_sdovdo.sql"
 
-se crea DBMYMWORK.JEA_MCV_UNIVERSO_WDW  "create_universo_wdw"
+Generación de bandera "LABEL" (En qué mes próximo cae en cartera vencida)
 
-se crea la tabla DBMYMWORK.JEA_MCV_UNIVERSO_RFC_AGG para obtener banderas de saldos vencidos 
+5. Se crea DBMYMWORK.JEA_MCV_UNIVERSO_SDOVDO "create_universo_sdovdo.sql"
+
+6. Se crea DBMYMWORK.JEA_MCV_UNIVERSO_WDW  "create_universo_wdw"
+
+7. se crea la tabla DBMYMWORK.JEA_MCV_UNIVERSO_RFC_AGG para obtener banderas de saldos vencidos 
 por rfc con el script "create_universo_rfc_agg.sql"
 
-se genera nuestra tabla de universo DBMYMWORK.JEA_MCV_UNIVERSO con el script "create_universo.sql"
+8. Se genera nuestra tabla de universo DBMYMWORK.JEA_MCV_UNIVERSO con el script "create_universo.sql"
 
-Se agrega campo de tipo de credito, neceario para calcular las variables relativas a los dias de atraso
+8'. Se agrega campo de tipo de credito, neceario para calcular las variables relativas a los dias de atraso
 (create_universo.sql, TODO: Decidir si se agrega el campo desde el preuniverso)
 
 TODO: AGREGAR LOGICA DE FECHA_BC, FOLIO (está lógica se encuentra en JAT_MCV_UNIVERSO_201806_201810_v3.sql)
 se colocó en "create_universo.sql" 
 
-Se  agregan campos de buró FECHA_BC y FOLIO, necesarios para la genaracion de variables de buró (create_universo.sql).
+8''. Se  agregan campos de buró FECHA_BC y FOLIO, necesarios para la genaracion de variables de buró (create_universo.sql).
 
 El universo actual es como:
 select COUNT(*) FROM JEA_MCV_UNIVERSO
