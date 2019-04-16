@@ -28,8 +28,8 @@ SELECT
       ELSE 0
   END as CARTERA_ADQUIRIDA,
   
-  -- El siguiente campo tiene dependencia ciclica (JEA_MCV_CATALOGO_LIN_NEC_VENC)
-  -- debe correrse el script comentándolo, generar JEA_MCV_CATALOGO_LIN_NEC_VENC, y volver
+  -- El siguiente campo tiene dependencia ciclica (JEA_MCV_CATALOGO_LIN_NAC_VENC)
+  -- debe correrse el script comentándolo, generar JEA_MCV_CATALOGO_LIN_NAC_VENC, y volver
   -- a correrlo descomentado
   -- /*
   CASE 
