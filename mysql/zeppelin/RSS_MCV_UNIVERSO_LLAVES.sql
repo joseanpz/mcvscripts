@@ -10,7 +10,7 @@ ROW FORMAT DELIMITED FIELDS TERMINATED BY '|'
 LOCATION 's3://boi-banregio/datalake/data/InteligenciaRiesgos/M&M/MCV/RSS_MCV_UNIVERSO_LLAVES';
 
 INSERT into  RSS_MCV_UNIVERSO_LLAVES
-SELECT  distinct llaveuniversal, fecha
+SELECT  distinct llaveuniversal, replace(fecha,'-','0') AS fecha
 FROM RSS_MCV_COLOCACION
 WHERE perfilnegocioactual NOT IN ('CORPORATIVO', 'DIRECCION', 'DUMMY', 'GOBIERNO')
 AND producto NOT IN ('3I ACS AUTOPRESTO', '3N ACS AUTOPRESTO', 'Z1 SEGURO ACS AUTOPRESTO')
