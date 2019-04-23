@@ -8,4 +8,4 @@ SELECT  a.fecha, a.llave_universal_20, b.*
 FROM JEA_MCV_UNIVERSO a
 LEFT JOIN dbriskdatamart.MZM_MCV_VAR_CR_OP_ACC_201902 b
 on a.folio_respuesta_bc = b.folio and a.rfc=b.rfc
-where a.fecha >=201607 ;
+where a.fecha >= 201607 ;
