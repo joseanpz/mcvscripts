@@ -4,7 +4,9 @@ DROP TABLE IF EXISTS RSS_MCV_PEQUE_VARIABLES3_VP_201902;
 CREATE TABLE  RSS_MCV_PEQUE_VARIABLES3_VP_201902
 ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' 
 LOCATION 's3://boi-banregio/datalake/data/InteligenciaRiesgos/M&M/MCV/RSS_MCV_PEQUE_VARIABLES3_VP_201902' AS
-SELECT   
+SELECT 
+'fecha' AS fecha,
+'rfc' as rfc ,  
 'num_inc_max_vp_per_t01' AS num_inc_max_vp_per_t01,
 'num_inc_max_vp_per_t02' AS num_inc_max_vp_per_t02,
 'num_inc_max_vp_per_t03' AS num_inc_max_vp_per_t03,
@@ -200,7 +202,9 @@ SELECT
 
 
 INSERT INTO RSS_MCV_PEQUE_VARIABLES3_VP_201902
-SELECT 
+SELECT
+a.fecha,
+a.rfc , 
 b.num_inc_max_vp_per_t01,
 b.num_inc_max_vp_per_t02,
 b.num_inc_max_vp_per_t03,

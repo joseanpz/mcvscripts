@@ -5,7 +5,8 @@ CREATE TABLE  RSS_MCV_PEQUE_VAR_VARIABLES_DIASATRASO2_201902
 ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' 
 LOCATION 's3://boi-banregio/datalake/data/InteligenciaRiesgos/M&M/MCV/RSS_MCV_PEQUE_VAR_VARIABLES_DIASATRASO2_201902' AS
 SELECT   
-
+'fecha' AS fecha,
+'rfc' as rfc ,
 'ms_desde_atr01m' AS ms_desde_atr01m,
 'ms_desde_atr30m' AS ms_desde_atr30m,
 'ms_desde_atr60m' AS ms_desde_atr60m,
@@ -108,6 +109,8 @@ SELECT
 'cnt_dec_u12m' AS cnt_dec_u12m;
 INSERT INTO RSS_MCV_PEQUE_VAR_VARIABLES_DIASATRASO2_201902
 SELECT 
+a.fecha,
+a.rfc ,
 b.ms_desde_atr01m,
 b.ms_desde_atr30m,
 b.ms_desde_atr60m,

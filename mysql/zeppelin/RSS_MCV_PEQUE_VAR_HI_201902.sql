@@ -4,7 +4,9 @@ DROP TABLE IF EXISTS RSS_MCV_PEQUE_VAR_HI_201902;
 CREATE TABLE  RSS_MCV_PEQUE_VAR_HI_201902
 ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' 
 LOCATION 's3://boi-banregio/datalake/data/InteligenciaRiesgos/M&M/MCV/RSS_MCV_PEQUE_VAR_HI_201902' AS
-SELECT   
+SELECT 
+'fecha' AS fecha,
+'rfc' as rfc ,  
 'max_venc29_03m' AS max_venc29_03m,
 'max_venc29_06m' AS max_venc29_06m,
 'max_venc29_12m' AS max_venc29_12m,
@@ -405,7 +407,9 @@ SELECT
 'num_avg_hi_calcar_floor_06m' AS num_avg_hi_calcar_floor_06m,
 'num_avg_hi_calcar_floor_12m' AS num_avg_hi_calcar_floor_12m;
 INSERT INTO RSS_MCV_PEQUE_VAR_HI_201902
-SELECT 
+SELECT
+a.fecha,
+a.rfc ,
 b.max_venc29_03m,
 b.max_venc29_06m,
 b.max_venc29_12m,
