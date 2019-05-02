@@ -23,7 +23,7 @@ SELECT
 'avg_pnd_menos_cred_lim_12m' AS avg_pnd_menos_cred_lim_12m,
 'avg_pnd_mas_cred_lim_12m' AS avg_pnd_mas_cred_lim_12m;
 INSERT INTO  RSS_MCV_PEQUE_CRED_LIM_201902 
-SELECT
+SELECT distinct
 a.fecha , 
 a.rfc,
 b.max_cred_lim_03m,
