@@ -308,7 +308,7 @@ SELECT
 'avg_pct_venc180m_brg_lse_cf_op_acc' AS avg_pct_venc180m_brg_lse_cf_op_acc,
 'avg_pct_venc180m_brg_lse_other_op_acc' AS avg_pct_venc180m_brg_lse_other_op_acc;
 INSERT INTO RSS_MCV_PEQUE_VAR_CR_OP_ACC_13_201902
-SELECT 
+SELECT distinct
 a.fecha , 
 a.rfc,
 b.max_pct_venc90m_op_acc,

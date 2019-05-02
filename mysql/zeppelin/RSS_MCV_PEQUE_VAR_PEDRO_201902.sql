@@ -24,7 +24,7 @@ SELECT
 'vcc_rev_smp' AS vcc_rev_smp,
 'dt_vs_sd' AS dt_vs_sd;
 INSERT INTO RSS_MCV_PEQUE_VAR_PEDRO_201902
-SELECT
+SELECT distinct 
 a.fecha,
 a.rfc,
 b.pct_dbt_bk,

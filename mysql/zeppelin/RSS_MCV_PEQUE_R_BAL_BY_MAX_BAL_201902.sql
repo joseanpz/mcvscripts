@@ -24,7 +24,7 @@ SELECT
 'avg_pnd_menos_r_bal_by_max_bal_12m' AS avg_pnd_menos_r_bal_by_max_bal_12m,
 'avg_pnd_mas_r_bal_by_max_bal_12m' AS avg_pnd_mas_r_bal_by_max_bal_12m;
 INSERT INTO RSS_MCV_PEQUE_R_BAL_BY_MAX_BAL_201902
-SELECT   a.fecha , a.rfc,
+SELECT  distinct a.fecha , a.rfc,
 b.r_bal_by_max_bal,
 b.max_r_bal_by_max_bal_03m,
 b.min_r_bal_by_max_bal_03m,

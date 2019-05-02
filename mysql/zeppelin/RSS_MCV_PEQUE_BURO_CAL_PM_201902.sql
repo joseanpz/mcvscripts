@@ -5,7 +5,8 @@ CREATE TABLE  RSS_MCV_PEQUE_BURO_CAL_PM_201902
 ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' 
 LOCATION 's3://boi-banregio/datalake/data/InteligenciaRiesgos/M&M/MCV/RSS_MCV_PEQUE_BURO_CAL_PM_201902' AS
 SELECT 
-
+'fecha' AS fecha,
+'rfc' as rfc ,
 '12_inst' AS 12_inst,
 'bk12_clean' AS bk12_clean,
 'bk12_dpd_prom' AS bk12_dpd_prom,
@@ -35,7 +36,8 @@ SELECT
 'nbk12_deuda_tot' AS nbk12_deuda_tot;
 INSERT INTO RSS_MCV_PEQUE_BURO_CAL_PM_201902
 SELECT 
-
+a.fecha , 
+a.rfc,
 b.12_inst,
 b.bk12_clean,
 b.bk12_dpd_prom,

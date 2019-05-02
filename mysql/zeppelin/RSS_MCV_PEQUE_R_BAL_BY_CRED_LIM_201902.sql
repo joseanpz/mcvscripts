@@ -24,7 +24,7 @@ SELECT
 'avg_pnd_menos_r_bal_by_cred_lim_12m' AS avg_pnd_menos_r_bal_by_cred_lim_12m,
 'avg_pnd_mas_r_bal_by_cred_lim_12m' AS avg_pnd_mas_r_bal_by_cred_lim_12m;
 insert into RSS_MCV_PEQUE_R_BAL_BY_CRED_LIM_201902
-select
+select distinct
 a.fecha,
 a.rfc ,
 b.r_bal_by_cred_lim,

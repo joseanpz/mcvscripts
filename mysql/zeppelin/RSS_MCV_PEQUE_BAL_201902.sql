@@ -4,7 +4,9 @@ DROP TABLE IF EXISTS RSS_MCV_PEQUE_BAL_201902;
 CREATE TABLE  RSS_MCV_PEQUE_BAL_201902
 ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' 
 LOCATION 's3://boi-banregio/datalake/data/InteligenciaRiesgos/M&M/MCV/RSS_MCV_PEQUE_BAL_201902' AS
-SELECT   
+SELECT 
+'fecha' AS fecha,
+'rfc' as rfc ,  
 'cur_bal' AS cur_bal,
 'max_bal_03m' AS max_bal_03m,
 'min_bal_03m' AS min_bal_03m,
@@ -22,7 +24,9 @@ SELECT
 'avg_pnd_menos_bal_12m' AS avg_pnd_menos_bal_12m,
 'avg_pnd_mas_bal_12m' AS avg_pnd_mas_bal_12m;
 INSERT INTO RSS_MCV_PEQUE_BAL_201902
-SELECT 
+SELECT distinct
+a.fecha , 
+a.rfc,
 b.cur_bal,
 b.max_bal_03m,
 b.min_bal_03m,
