@@ -5,7 +5,9 @@ DROP TABLE IF EXISTS RSS_MCV_PEQUE_VARIABLES2_VP_201902;
 CREATE TABLE  RSS_MCV_PEQUE_VARIABLES2_VP_201902
 ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' 
 LOCATION 's3://boi-banregio/datalake/data/InteligenciaRiesgos/M&M/MCV/RSS_MCV_PEQUE_VARIABLES2_VP_201902' AS
-SELECT   
+SELECT
+a.fecha,
+a.rfc ,   
 'max_dias_para_pago_t00' AS max_dias_para_pago_t00,
 'max_dias_para_pago_t01' AS max_dias_para_pago_t01,
 'max_dias_para_pago_t02' AS max_dias_para_pago_t02,

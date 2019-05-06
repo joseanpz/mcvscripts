@@ -308,7 +308,7 @@ SELECT
 'avg_pct_venc180m_brg_lse_cf_op_acc' AS avg_pct_venc180m_brg_lse_cf_op_acc,
 'avg_pct_venc180m_brg_lse_other_op_acc' AS avg_pct_venc180m_brg_lse_other_op_acc;
 INSERT INTO RSS_MCV_PEQUE_VAR_CR_OP_ACC_13_201902
-SELECT 
+SELECT distinct
 a.fecha , 
 a.rfc,
 b.max_pct_venc90m_op_acc,
@@ -611,7 +611,7 @@ b.avg_pct_venc180m_brg_lse_lsg_op_acc,
 b.avg_pct_venc180m_brg_lse_r_op_acc,
 b.avg_pct_venc180m_brg_lse_cf_op_acc,
 b.avg_pct_venc180m_brg_lse_other_op_acc
-FROM JEA_MCV_UNIVERSO a
+FROM JEA_MCV_UNIVERSO_RFC a
 LEFT JOIN dbriskdatamart.MZM_MCV_VAR_CR_OP_ACC_13_201902 b
 on a.folio_respuesta_bc = b.folio and a.rfc=b.rfc
 where a.fecha >=201607 ;

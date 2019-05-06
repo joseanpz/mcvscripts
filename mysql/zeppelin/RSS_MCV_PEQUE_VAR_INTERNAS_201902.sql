@@ -4,8 +4,9 @@ DROP TABLE IF EXISTS RSS_MCV_PEQUE_VAR_INTERNAS_201902;
 CREATE TABLE  RSS_MCV_PEQUE_VAR_INTERNAS_201902
 ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' 
 LOCATION 's3://boi-banregio/datalake/data/InteligenciaRiesgos/M&M/MCV/RSS_MCV_PEQUE_VAR_INTERNAS_201902' AS
-SELECT   
-
+SELECT
+'fecha' AS fecha,
+'rfc' as rfc ,   
 'util_interna_t00' AS util_interna_t00,
 'util_interna_t01' AS util_interna_t01,
 'util_interna_t02' AS util_interna_t02,
@@ -110,6 +111,8 @@ SELECT
 'num_dec_util_interna_t12' AS num_dec_util_interna_t12;
 INSERT INTO RSS_MCV_PEQUE_VAR_INTERNAS_201902
 SELECT 
+a.fecha,
+a.rfc ,  
 b.util_interna_t00,
 b.util_interna_t01,
 b.util_interna_t02,

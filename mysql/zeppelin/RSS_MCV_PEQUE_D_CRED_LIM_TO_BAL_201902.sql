@@ -5,7 +5,8 @@ CREATE TABLE  RSS_MCV_PEQUE_D_CRED_LIM_TO_BAL_201902
 ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' 
 LOCATION 's3://boi-banregio/datalake/data/InteligenciaRiesgos/M&M/MCV/RSS_MCV_PEQUE_D_CRED_LIM_TO_BAL_201902' AS
 SELECT   
-
+'fecha' AS fecha,
+'rfc' as rfc , 
 'd_cred_lim_to_bal' AS d_cred_lim_to_bal,
 'max_d_cred_lim_to_bal_03m' AS max_d_cred_lim_to_bal_03m,
 'min_d_cred_lim_to_bal_03m' AS min_d_cred_lim_to_bal_03m,
@@ -23,7 +24,9 @@ SELECT
 'avg_pnd_menos_d_cred_lim_to_bal_12m' AS avg_pnd_menos_d_cred_lim_to_bal_12m,
 'avg_pnd_mas_d_cred_lim_to_bal_12m' AS avg_pnd_mas_d_cred_lim_to_bal_12m;
 INSERT INTO RSS_MCV_PEQUE_D_CRED_LIM_TO_BAL_201902
-SELECT
+SELECT distinct
+a.fecha , 
+a.rfc,
 b.d_cred_lim_to_bal,
 b.max_d_cred_lim_to_bal_03m,
 b.min_d_cred_lim_to_bal_03m,
