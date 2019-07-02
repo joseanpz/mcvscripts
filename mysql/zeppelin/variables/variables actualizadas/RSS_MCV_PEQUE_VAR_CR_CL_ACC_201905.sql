@@ -1215,11 +1215,3 @@ FROM JEA_MCV_UNIVERSO_RFC a
 LEFT JOIN dbriskdatamart.MZM_MCV_VAR_CR_CL_ACC_201905 b
 on a.folio_respuesta_bc = b.folio and a.rfc=b.rfc
 where a.fecha >=201607 ;
-
-
-
-
-
-
-
-
