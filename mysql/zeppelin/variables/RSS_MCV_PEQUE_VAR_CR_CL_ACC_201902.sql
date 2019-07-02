@@ -1,9 +1,9 @@
 %hive
-DROP TABLE IF EXISTS RSS_MCV_PEQUE_VAR_CR_CL_ACC_201905;
+DROP TABLE IF EXISTS RSS_MCV_PEQUE_VAR_CR_CL_ACC_201902;
 
-CREATE TABLE  RSS_MCV_PEQUE_VAR_CR_CL_ACC_201905
+CREATE TABLE  RSS_MCV_PEQUE_VAR_CR_CL_ACC_201902
 ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' 
-LOCATION 's3://boi-banregio/datalake/data/InteligenciaRiesgos/M&M/MCV/RSS_MCV_PEQUE_VAR_CR_CL_ACC_201905' AS
+LOCATION 's3://boi-banregio/datalake/data/InteligenciaRiesgos/M&M/MCV/RSS_MCV_PEQUE_VAR_CR_CL_ACC_201902' AS
 SELECT 
 'fecha' AS fecha,
 'rfc' as rfc ,
@@ -608,7 +608,7 @@ SELECT
 'min_salini_brg_lse_r_cl_acc_12m' AS min_salini_brg_lse_r_cl_acc_12m,
 'min_salini_brg_lse_cf_cl_acc_12m' AS min_salini_brg_lse_cf_cl_acc_12m;
 
-INSERT INTO RSS_MCV_PEQUE_VAR_CR_CL_ACC_201905
+INSERT INTO RSS_MCV_PEQUE_VAR_CR_CL_ACC_201902
 SELECT   a.fecha , a.rfc,
 b.max_salini_cl_acc,
 b.max_salini_bk_cl_acc,
@@ -1212,7 +1212,7 @@ b.min_salini_brg_lse_r_cl_acc_12m,
 b.min_salini_brg_lse_cf_cl_acc_12m
 
 FROM JEA_MCV_UNIVERSO_RFC a
-LEFT JOIN dbriskdatamart.MZM_MCV_VAR_CR_CL_ACC_201905 b
+LEFT JOIN dbriskdatamart.MZM_MCV_VAR_CR_CL_ACC_201902 b
 on a.folio_respuesta_bc = b.folio and a.rfc=b.rfc
 where a.fecha >=201607 ;
 
