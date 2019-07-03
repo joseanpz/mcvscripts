@@ -1,12 +1,9 @@
 %hive
-
 INSERT INTO RSS_MCV_PEQUE_VARIABLES2_VP
 
 ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' 
 LOCATION 's3://boi-banregio/datalake/data/InteligenciaRiesgos/M&M/MCV/RSS_MCV_PEQUE_VARIABLES2_VP' AS
-SELECT
-a.fecha,
-a.rfc , 
+SELECT 
 b.max_dias_para_pago_t00,
 b.max_dias_para_pago_t01,
 b.max_dias_para_pago_t02,
@@ -374,6 +371,6 @@ b.avg_pnd_menos_avg2_vp_mes_u11,
 b.avg_pnd_menos_avg2_vp_mes_u12
 
 FROM JEA_MCV_UNIVERSO_RFC a
-LEFT JOIN dbriskdatamart.JAT_MCV_VARIABLES2_VP_201905 b
+LEFT JOIN dbriskdatamart.JAT_MCV_VARIABLES2_VP_201902 b
 on a.rfc=b.rfc and a.fecha=b.fecha
 where a.fecha >=201607 ;
