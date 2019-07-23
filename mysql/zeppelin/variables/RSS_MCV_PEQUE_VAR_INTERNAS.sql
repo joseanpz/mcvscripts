@@ -216,6 +216,6 @@ b.num_dec_util_interna_t10,
 b.num_dec_util_interna_t11,
 b.num_dec_util_interna_t12
 FROM JEA_MCV_UNIVERSO_RFC a
-LEFT JOIN dbriskdatamart.JAT_MCV_VAR_INTERNAS_201902 b
+LEFT JOIN dbriskdatamart.JAT_MCV_VAR_INTERNAS_201906 b
 on a.rfc=b.rfc and a.fecha=b.fecha
 where a.fecha >=201607 ;

@@ -1212,7 +1212,7 @@ b.min_salini_brg_lse_r_cl_acc_12m,
 b.min_salini_brg_lse_cf_cl_acc_12m
 
 FROM JEA_MCV_UNIVERSO_RFC a
-LEFT JOIN dbriskdatamart.MZM_MCV_VAR_CR_CL_ACC_201902 b
+LEFT JOIN dbriskdatamart.MZM_MCV_VAR_CR_CL_ACC_201906 b
 on a.folio_respuesta_bc = b.folio and a.rfc=b.rfc
 where a.fecha >=201607 ;
 

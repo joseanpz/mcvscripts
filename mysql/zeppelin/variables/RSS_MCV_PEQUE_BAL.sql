@@ -44,6 +44,6 @@ b.avg_bal_12m,
 b.avg_pnd_menos_bal_12m,
 b.avg_pnd_mas_bal_12m
 FROM JEA_MCV_UNIVERSO_RFC a
-LEFT JOIN dbriskdatamart.MZM_MCV_BAL_201902 b
+LEFT JOIN dbriskdatamart.MZM_MCV_BAL_201906 b
 on a.fecha = b.fecha and a.rfc=b.rfc
 where a.fecha >=201607 ;

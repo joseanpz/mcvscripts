@@ -66,6 +66,6 @@ b.nbk12_pct_60plus,
 b.nbk12_deuda_cp,
 b.nbk12_deuda_tot
 FROM JEA_MCV_UNIVERSO_RFC a
-LEFT JOIN dbriskdatamart.MZM_MCV_BURO_CAL_PM_201902 b
+LEFT JOIN dbriskdatamart.MZM_MCV_BURO_CAL_PM_201906 b
 on a.folio_respuesta_bc = b.folio and a.rfc=b.rfc
 where a.fecha >=201607 ;
