@@ -44,6 +44,6 @@ b.pct_rev,
 b.vcc_rev_smp,
 b.dt_vs_sd
 FROM JEA_MCV_UNIVERSO_RFC a
-LEFT JOIN dbriskdatamart.JAT_MCV_VAR_PEDRO_201902 b
+LEFT JOIN dbriskdatamart.JAT_MCV_VAR_PEDRO_201906 b
 on a.rfc=b.rfc and a.fecha=b.fecha
 where a.fecha >=201607 ;

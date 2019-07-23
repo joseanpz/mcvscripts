@@ -1412,6 +1412,6 @@ b.avg_pct_venc60m_brg_lse_r_op_acc,
 b.avg_pct_venc60m_brg_lse_cf_op_acc,
 b.avg_pct_venc60m_brg_lse_other_op_acc
 FROM JEA_MCV_UNIVERSO_RFC a
-LEFT JOIN dbriskdatamart.MZM_MCV_VAR_CR_OP_ACC_12_201902 b
+LEFT JOIN dbriskdatamart.MZM_MCV_VAR_CR_OP_ACC_12_201906 b
 on a.folio_respuesta_bc = b.folio and a.rfc=b.rfc
 where a.fecha >=201607 ;

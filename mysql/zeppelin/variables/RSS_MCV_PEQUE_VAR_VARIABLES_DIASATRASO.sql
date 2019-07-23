@@ -17,6 +17,6 @@ a.rfc ,
 b.dias_atraso,
 b.dpcv_cap
 FROM JEA_MCV_UNIVERSO_RFC a
-LEFT JOIN dbriskdatamart.MZM_MCV_VAR_VARIABLES_DIASATRASO_201902 b
+LEFT JOIN dbriskdatamart.MZM_MCV_VAR_VARIABLES_DIASATRASO_201906 b
 on a.rfc=b.rfc and a.fecha=b.fecha
 where a.fecha >=201607 ;

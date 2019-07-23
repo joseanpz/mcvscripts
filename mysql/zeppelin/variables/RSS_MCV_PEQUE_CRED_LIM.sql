@@ -42,6 +42,6 @@ b.avg_cred_lim_12m,
 b.avg_pnd_menos_cred_lim_12m,
 b.avg_pnd_mas_cred_lim_12m
 FROM JEA_MCV_UNIVERSO_RFC a
-LEFT JOIN dbriskdatamart.MZM_MCV_CRED_LIM_201902 b
+LEFT JOIN dbriskdatamart.MZM_MCV_CRED_LIM_201906 b
 on a.fecha = b.fecha and a.rfc=b.rfc
 where a.fecha >=201607 ;
