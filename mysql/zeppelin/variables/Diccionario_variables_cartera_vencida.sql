@@ -9,39 +9,39 @@ data_vars = {
     }, 
     "RSS_MCV_PEQUE_VAR_CR_OP_ACC": {
         "header": "000000_0",
-        "data_files": ["000000_0_copy_1","000001_0","000002_0","000003_0"]
+        "data_files": ["000000_0_copy_1","000001_0"]
     }, 
     "RSS_MCV_PEQUE_VAR_CR_OP_ACC_2": {
         "header": "000000_0",
-        "data_files": ["000000_0_copy_1","000001_0","000002_0"]
+        "data_files": ["000000_0_copy_1","000001_0"]
     }, 
     "RSS_MCV_PEQUE_VAR_CR_OP_ACC_3": {
         "header": "000000_0",
-        "data_files": ["000000_0_copy_1","000001_0","000002_0","000003_0","000004_0"]
+        "data_files": ["000000_0_copy_1","000001_0"]
     }, 
     "RSS_MCV_PEQUE_VAR_CR_OP_ACC_4": {
         "header": "000000_0",
-        "data_files": ["000000_0_copy_1","000001_0","000002_0","000003_0"]
+        "data_files": ["000000_0_copy_1","000001_0"]
     }, 
     "RSS_MCV_PEQUE_VAR_CR_OP_ACC_5": {
         "header": "000000_0",
-        "data_files": ["000000_0_copy_1","000001_0","000002_0","000003_0"]
+        "data_files": ["000000_0_copy_1","000001_0"]
     }, 
     "RSS_MCV_PEQUE_VAR_CR_OP_ACC_6": {
         "header": "000000_0",
-        "data_files": ["000000_0_copy_1","000001_0","000002_0","000003_0"]
+        "data_files": ["000000_0_copy_1","000001_0"]
     }, 
     "RSS_MCV_PEQUE_VAR_CR_OP_ACC_7": {
         "header": "000000_0",
-        "data_files": ["000000_0_copy_1","000001_0","000002_0","000003_0","000004_0"]
+        "data_files": ["000000_0_copy_1","000001_0"]
     }, 
     "RSS_MCV_PEQUE_VAR_CR_OP_ACC_8": {
         "header": "000000_0",
-        "data_files": ["000000_0_copy_1","000001_0","000002_0"]
+        "data_files": ["000000_0_copy_1","000001_0"]
     }, 
     "RSS_MCV_PEQUE_VAR_CR_OP_ACC_9": {
         "header": "000000_0",
-        "data_files": ["000000_0_copy_1","000001_0","000002_0"]
+        "data_files": ["000000_0_copy_1"]
     }, 
     "RSS_MCV_PEQUE_VAR_CR_OP_ACC_10": {
         "header": "000000_0",
@@ -59,9 +59,9 @@ data_vars = {
         "header": "000000_0",
         "data_files": ["000000_0_copy_1","000001_0"]
     }, 
-    "RSS_MCV_PEQUE_VAR_CR_OP_ACC_14_201905": {
+    "RSS_MCV_PEQUE_VAR_CR_OP_ACC_14": {
         "header": "000000_0",
-        "data_files": ["000000_0_copy_1","000001_0","000002_0","000003_0", "000004_0"]
+        "data_files": ["000000_0_copy_1","000001_0"]
     }, 
     "RSS_MCV_PEQUE_CRED_LIM": {
         "header": "000000_0",
