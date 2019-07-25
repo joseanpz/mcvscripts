@@ -1,9 +1,9 @@
 %hive
-DROP TABLE IF EXISTS RSS_MCV_PEQUE_BAL_201905;
+DROP TABLE IF EXISTS RSS_MCV_NEGOCIOS_BAL;
 
-CREATE TABLE  RSS_MCV_PEQUE_BAL_201905
+CREATE TABLE  RSS_MCV_PEQUE_BAL
 ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' 
-LOCATION 's3://boi-banregio/datalake/data/InteligenciaRiesgos/M&M/MCV/RSS_MCV_PEQUE_BAL_201905' AS
+LOCATION 's3://boi-banregio/datalake/data/InteligenciaRiesgos/M&M/MCV/RSS_MCV_NEGOCIOS_BAL' AS
 SELECT   
 'fecha' AS fecha,
 'rfc' as rfc ,
@@ -23,7 +23,7 @@ SELECT
 'avg_bal_12m' AS avg_bal_12m,
 'avg_pnd_menos_bal_12m' AS avg_pnd_menos_bal_12m,
 'avg_pnd_mas_bal_12m' AS avg_pnd_mas_bal_12m;
-INSERT INTO RSS_MCV_PEQUE_BAL_201905
+INSERT INTO RSS_MCV_PEQUE_BAL
 SELECT distinct
 a.fecha,
 a.rfc ,
@@ -43,7 +43,6 @@ b.min_bal_12m,
 b.avg_bal_12m,
 b.avg_pnd_menos_bal_12m,
 b.avg_pnd_mas_bal_12m
-FROM JEA_MCV_UNIVERSO_RFC a
-LEFT JOIN dbriskdatamart.MZM_MCV_BAL_201905 b
-on a.fecha = b.fecha and a.rfc=b.rfc
-where a.fecha >=201607 ;
+FROM JEA_MCV_UNIVERSO_NEGOCIOS a
+LEFT JOIN dbriskdatamart.MZM_MCV_BAL_201906 b
+on a.fecha = b.fecha and a.rfc=b.rfc;
