@@ -23,7 +23,7 @@ SELECT
 'avg_bal_12m' AS avg_bal_12m,
 'avg_pnd_menos_bal_12m' AS avg_pnd_menos_bal_12m,
 'avg_pnd_mas_bal_12m' AS avg_pnd_mas_bal_12m;
-INSERT INTO RSS_MCV_PEQUE_BAL
+INSERT INTO RSS_MCV_NEGOCIOS_BAL
 SELECT distinct
 a.fecha,
 a.rfc ,
