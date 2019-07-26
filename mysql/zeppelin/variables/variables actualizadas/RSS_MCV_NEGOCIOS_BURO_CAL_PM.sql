@@ -1,9 +1,9 @@
 %hive
-DROP TABLE IF EXISTS RSS_MCV_PEQUE_BURO_CAL_PM_201905;
+DROP TABLE IF EXISTS RSS_MCV_NEGOCIOS_BURO_CAL_PM;
 
-CREATE TABLE  RSS_MCV_PEQUE_BURO_CAL_PM_201905
+CREATE TABLE  RSS_MCV_NEGOCIOS_BURO_CAL_PM
 ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' 
-LOCATION 's3://boi-banregio/datalake/data/InteligenciaRiesgos/M&M/MCV/RSS_MCV_PEQUE_BURO_CAL_PM_201905' AS
+LOCATION 's3://boi-banregio/datalake/data/InteligenciaRiesgos/M&M/MCV/RSS_MCV_NEGOCIOS_BURO_CAL_PM' AS
 SELECT 
 'fecha' AS fecha,
 'rfc' as rfc ,
@@ -34,7 +34,7 @@ SELECT
 'nbk12_pct_60plus' AS nbk12_pct_60plus,
 'nbk12_deuda_cp' AS nbk12_deuda_cp,
 'nbk12_deuda_tot' AS nbk12_deuda_tot;
-INSERT INTO RSS_MCV_PEQUE_BURO_CAL_PM_201905
+INSERT INTO RSS_MCV_NEGOCIOS_BURO_CAL_PM
 SELECT 
 a.fecha,
 a.rfc ,
@@ -65,7 +65,7 @@ b.nbk12_pct_sat,
 b.nbk12_pct_60plus,
 b.nbk12_deuda_cp,
 b.nbk12_deuda_tot
-FROM JEA_MCV_UNIVERSO_RFC a
-LEFT JOIN dbriskdatamart.MZM_MCV_BURO_CAL_PM_201905 b
-on a.folio_respuesta_bc = b.folio and a.rfc=b.rfc
-where a.fecha >=201607 ;
+FROM JEA_MCV_UNIVERSO_NEGOCIOS2 a
+LEFT JOIN dbriskdatamart.MZM_MCV_BURO_CAL_PM_201906 b
+on a.foliorespuestabc = b.folio and a.rfc=b.rfc
+ ;
