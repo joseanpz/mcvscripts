@@ -1,9 +1,9 @@
 %hive
-DROP TABLE IF EXISTS RSS_MCV_PEQUE_VAR_HI_201905;
+DROP TABLE IF EXISTS RSS_MCV_NEGOCIOS_VAR_HI;
 
-CREATE TABLE  RSS_MCV_PEQUE_VAR_HI_201905
+CREATE TABLE  RSS_MCV_NEGOCIOS_VAR_HI
 ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' 
-LOCATION 's3://boi-banregio/datalake/data/InteligenciaRiesgos/M&M/MCV/RSS_MCV_PEQUE_VAR_HI_201905' AS
+LOCATION 's3://boi-banregio/datalake/data/InteligenciaRiesgos/M&M/MCV/RSS_MCV_NEGOCIOS_VAR_HI' AS
 SELECT
 'fecha' AS fecha,
 'rfc' as rfc ,  
@@ -406,7 +406,7 @@ SELECT
 'num_avg_hi_calcar_floor_03m' AS num_avg_hi_calcar_floor_03m,
 'num_avg_hi_calcar_floor_06m' AS num_avg_hi_calcar_floor_06m,
 'num_avg_hi_calcar_floor_12m' AS num_avg_hi_calcar_floor_12m;
-INSERT INTO RSS_MCV_PEQUE_VAR_HI_201905
+INSERT INTO RSS_MCV_NEGOCIOS_VAR_HI
 SELECT 
 a.fecha,
 a.rfc ,
