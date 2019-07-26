@@ -1,9 +1,9 @@
 %hive
-DROP TABLE IF EXISTS RSS_MCV_PEQUE_D_CRED_LIM_TO_BAL_201905;
+DROP TABLE IF EXISTS RSS_MCV_NEGOCIOS_D_CRED_LIM_TO_BAL;
 
-CREATE TABLE  RSS_MCV_PEQUE_D_CRED_LIM_TO_BAL_201905
+CREATE TABLE  RSS_MCV_NEGOCIOS_D_CRED_LIM_TO_BAL
 ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' 
-LOCATION 's3://boi-banregio/datalake/data/InteligenciaRiesgos/M&M/MCV/RSS_MCV_PEQUE_D_CRED_LIM_TO_BAL_201905' AS
+LOCATION 's3://boi-banregio/datalake/data/InteligenciaRiesgos/M&M/MCV/RSS_MCV_NEGOCIOS_D_CRED_LIM_TO_BAL' AS
 SELECT   
 'fecha' AS fecha,
 'rfc' as rfc ,
@@ -23,7 +23,7 @@ SELECT
 'avg_d_cred_lim_to_bal_12m' AS avg_d_cred_lim_to_bal_12m,
 'avg_pnd_menos_d_cred_lim_to_bal_12m' AS avg_pnd_menos_d_cred_lim_to_bal_12m,
 'avg_pnd_mas_d_cred_lim_to_bal_12m' AS avg_pnd_mas_d_cred_lim_to_bal_12m;
-INSERT INTO RSS_MCV_PEQUE_D_CRED_LIM_TO_BAL_201905
+INSERT INTO RSS_MCV_NEGOCIOS_D_CRED_LIM_TO_BAL
 SELECT distinct
 a.fecha,
 a.rfc ,
@@ -43,7 +43,7 @@ b.min_d_cred_lim_to_bal_12m,
 b.avg_d_cred_lim_to_bal_12m,
 b.avg_pnd_menos_d_cred_lim_to_bal_12m,
 b.avg_pnd_mas_d_cred_lim_to_bal_12m
-FROM JEA_MCV_UNIVERSO_RFC a
-LEFT JOIN dbriskdatamart.MZM_MCV_D_CRED_LIM_TO_BAL_201905 b
+FROM JEA_MCV_UNIVERSO_NEGOCIOS a
+LEFT JOIN dbriskdatamart.MZM_MCV_D_CRED_LIM_TO_BAL_201906 b
 on a.fecha = b.fecha and a.rfc=b.rfc
-where a.fecha >=201607 ;
+ ;

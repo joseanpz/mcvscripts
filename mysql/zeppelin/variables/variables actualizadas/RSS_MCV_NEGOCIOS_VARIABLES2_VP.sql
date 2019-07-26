@@ -1,9 +1,9 @@
 %hive
-DROP TABLE IF EXISTS RSS_MCV_PEQUE_VARIABLES2_VP_201905;
+DROP TABLE IF EXISTS RSS_MCV_NEGOCIOS_VARIABLES2_VP;
 
-CREATE TABLE  RSS_MCV_PEQUE_VARIABLES2_VP_201905
+CREATE TABLE  RSS_MCV_NEGOCIOS_VARIABLES2_VP
 ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' 
-LOCATION 's3://boi-banregio/datalake/data/InteligenciaRiesgos/M&M/MCV/RSS_MCV_PEQUE_VARIABLES2_VP_201905' AS
+LOCATION 's3://boi-banregio/datalake/data/InteligenciaRiesgos/M&M/MCV/RSS_MCV_NEGOCIOS_VARIABLES2_VP' AS
 SELECT 
 'fecha' AS fecha,
 'rfc' as rfc , 
@@ -372,7 +372,7 @@ SELECT
 'avg_pnd_menos_avg2_vp_mes_u10' AS avg_pnd_menos_avg2_vp_mes_u10,
 'avg_pnd_menos_avg2_vp_mes_u11' AS avg_pnd_menos_avg2_vp_mes_u11,
 'avg_pnd_menos_avg2_vp_mes_u12' AS avg_pnd_menos_avg2_vp_mes_u12;
-INSERT INTO RSS_MCV_PEQUE_VARIABLES2_VP_201905
+INSERT INTO RSS_MCV_NEGOCIOS_VARIABLES2_VP
 SELECT
 a.fecha,
 a.rfc , 
@@ -742,7 +742,7 @@ b.avg_pnd_menos_avg2_vp_mes_u10,
 b.avg_pnd_menos_avg2_vp_mes_u11,
 b.avg_pnd_menos_avg2_vp_mes_u12
 
-FROM JEA_MCV_UNIVERSO_RFC a
-LEFT JOIN dbriskdatamart.JAT_MCV_VARIABLES2_VP_201905 b
+FROM JEA_MCV_UNIVERSO_NEGOCIOS a
+LEFT JOIN dbriskdatamart.JAT_MCV_VARIABLES2_VP_201906 b
 on a.rfc=b.rfc and a.fecha=b.fecha
-where a.fecha >=201607 ;
+ ;

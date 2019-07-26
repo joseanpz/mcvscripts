@@ -1,9 +1,9 @@
 %hive
-DROP TABLE IF EXISTS RSS_MCV_PEQUE_VAR_PEDRO_201905;
+DROP TABLE IF EXISTS RSS_MCV_NEGOCIOS_VAR_PEDRO;
 
-CREATE TABLE  RSS_MCV_PEQUE_VAR_PEDRO_201905
+CREATE TABLE  RSS_MCV_NEGOCIOS_VAR_PEDRO
 ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' 
-LOCATION 's3://boi-banregio/datalake/data/InteligenciaRiesgos/M&M/MCV/RSS_MCV_PEQUE_VAR_PEDRO_201905' AS
+LOCATION 's3://boi-banregio/datalake/data/InteligenciaRiesgos/M&M/MCV/RSS_MCV_NEGOCIOS_VAR_PEDRO' AS
 SELECT 
 'fecha' AS fecha,
 'rfc' as rfc , 
@@ -23,7 +23,7 @@ SELECT
 'pct_rev' AS pct_rev,
 'vcc_rev_smp' AS vcc_rev_smp,
 'dt_vs_sd' AS dt_vs_sd;
-INSERT INTO RSS_MCV_PEQUE_VAR_PEDRO_201905
+INSERT INTO RSS_MCV_NEGOCIOS_VAR_PEDRO
 SELECT distinct 
 a.fecha,
 a.rfc,
@@ -43,7 +43,7 @@ b.sdo_no_rev,
 b.pct_rev,
 b.vcc_rev_smp,
 b.dt_vs_sd
-FROM JEA_MCV_UNIVERSO_RFC a
-LEFT JOIN dbriskdatamart.JAT_MCV_VAR_PEDRO_201905 b
+FROM JEA_MCV_UNIVERSO_NEGOCIOS a
+LEFT JOIN dbriskdatamart.JAT_MCV_VAR_PEDRO_201906 b
 on a.rfc=b.rfc and a.fecha=b.fecha
-where a.fecha >=201607 ;
+ ;

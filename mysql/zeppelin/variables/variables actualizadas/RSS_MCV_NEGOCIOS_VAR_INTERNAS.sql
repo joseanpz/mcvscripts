@@ -1,9 +1,9 @@
 %hive
-DROP TABLE IF EXISTS RSS_MCV_PEQUE_VAR_INTERNAS_201905;
+DROP TABLE IF EXISTS RSS_MCV_NEGOCIOS_VAR_INTERNAS;
 
-CREATE TABLE  RSS_MCV_PEQUE_VAR_INTERNAS_201905
+CREATE TABLE  RSS_MCV_NEGOCIOS_VAR_INTERNAS
 ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' 
-LOCATION 's3://boi-banregio/datalake/data/InteligenciaRiesgos/M&M/MCV/RSS_MCV_PEQUE_VAR_INTERNAS_201905' AS
+LOCATION 's3://boi-banregio/datalake/data/InteligenciaRiesgos/M&M/MCV/RSS_MCV_NEGOCIOS_VAR_INTERNAS' AS
 SELECT   
 'fecha' AS fecha,
 'rfc' as rfc ,   
@@ -109,7 +109,7 @@ SELECT
 'num_dec_util_interna_t10' AS num_dec_util_interna_t10,
 'num_dec_util_interna_t11' AS num_dec_util_interna_t11,
 'num_dec_util_interna_t12' AS num_dec_util_interna_t12;
-INSERT INTO RSS_MCV_PEQUE_VAR_INTERNAS_201905
+INSERT INTO RSS_MCV_NEGOCIOS_VAR_INTERNAS
 SELECT 
 a.fecha,
 a.rfc , 
@@ -215,7 +215,7 @@ b.num_dec_util_interna_t09,
 b.num_dec_util_interna_t10,
 b.num_dec_util_interna_t11,
 b.num_dec_util_interna_t12
-FROM JEA_MCV_UNIVERSO_RFC a
-LEFT JOIN dbriskdatamart.JAT_MCV_VAR_INTERNAS_201905 b
+FROM JEA_MCV_UNIVERSO_NEGOCIOS a
+LEFT JOIN dbriskdatamart.JAT_MCV_VAR_INTERNAS_201906 b
 on a.rfc=b.rfc and a.fecha=b.fecha
-where a.fecha >=201607 ;
+ ;

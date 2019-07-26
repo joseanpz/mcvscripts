@@ -1,9 +1,9 @@
 %hive
-DROP TABLE IF EXISTS RSS_MCV_PEQUE_VARIABLES3_VP_201905;
+DROP TABLE IF EXISTS RSS_MCV_NEGOCIOS_VARIABLES3_VP_2;
 
-CREATE TABLE  RSS_MCV_PEQUE_VARIABLES3_VP_201905
+CREATE TABLE  RSS_MCV_NEGOCIOS_VARIABLES3_VP_2
 ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' 
-LOCATION 's3://boi-banregio/datalake/data/InteligenciaRiesgos/M&M/MCV/RSS_MCV_PEQUE_VARIABLES3_VP_201905' AS
+LOCATION 's3://boi-banregio/datalake/data/InteligenciaRiesgos/M&M/MCV/RSS_MCV_NEGOCIOS_VARIABLES3_VP_2' AS
 SELECT  
 'fecha' AS fecha,
 'rfc' as rfc , 
@@ -201,7 +201,7 @@ SELECT
 'num_dec_avg2_vp_mes_t12' AS num_dec_avg2_vp_mes_t12;
 
 
-INSERT INTO RSS_MCV_PEQUE_VARIABLES3_VP_201905
+INSERT INTO RSS_MCV_NEGOCIOS_VARIABLES3_VP_2
 SELECT 
 a.fecha,
 a.rfc , 
@@ -397,7 +397,7 @@ b.num_dec_avg2_vp_mes_t09,
 b.num_dec_avg2_vp_mes_t10,
 b.num_dec_avg2_vp_mes_t11,
 b.num_dec_avg2_vp_mes_t12
-FROM JEA_MCV_UNIVERSO_RFC a
-LEFT JOIN dbriskdatamart.JAT_MCV_VARIABLES3_VP_201905 b
+FROM JEA_MCV_UNIVERSO_NEGOCIOS a
+LEFT JOIN dbriskdatamart.JAT_MCV_VARIABLES3_VP_201906 b
 on a.rfc=b.rfc and a.fecha=b.fecha
-where a.fecha >=201607 ;
+;
