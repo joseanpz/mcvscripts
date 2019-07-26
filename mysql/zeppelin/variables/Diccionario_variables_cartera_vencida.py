@@ -1,9 +1,9 @@
 data_vars = {
-    "RSS_MCV_PEQUE_VAR_CR_CL_ACC": {
+    "RSS_MCV_NEGOCIOS_VAR_CR_CL_ACC": {
         "header": "000000_0",
         "data_files": ["000000_0_copy_1", "000001_0", "000002_0"]
     }, 
-    "RSS_MCV_PEQUE_VAR_CR_CL_ACC_2": {
+    "RSS_MCV_NEGOCIOS_VAR_CR_CL_ACC_2": {
         "header": "000000_0",
         "data_files": ["000000_0_copy_1","000001_0"]
     }, 
@@ -83,9 +83,9 @@ data_vars = {
         "header": "000000_0",
         "data_files": ["000000_0_copy_1","000001_0"]
     }, 
-    "RSS_MCV_PEQUE_R_BAL_BY_CRED_LIM": {
+    "RSS_MCV_NEGOCIOS_R_BAL_BY_CRED_LIM": {
        "header": "000000_0",
-       "data_files": ["000000_0_copy_1"] 
+       "data_files": ["000000_0_copy_1","000001_0","000002_0"] 
     }, 
     "RSS_MCV_NEGOCIOS_R_BAL_BY_MAX_BAL": {
         "header": "000000_0",
