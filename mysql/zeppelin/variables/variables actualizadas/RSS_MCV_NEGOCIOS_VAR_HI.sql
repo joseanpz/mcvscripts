@@ -811,6 +811,6 @@ b.num_avg_hi_calcar_floor_03m,
 b.num_avg_hi_calcar_floor_06m,
 b.num_avg_hi_calcar_floor_12m
 
-FROM JEA_MCV_UNIVERSO_NEGOCIOS2 a
+FROM RSS_MCV_UNIVERSO_RFC_NEGOCIOS a
 LEFT JOIN dbriskdatamart.JAT_MCV_VAR_HI_201906 b
-on a.foliorespuestabc = b.folio  ;
+on a.FOLIO_RESPUESTA_BC = b.folio  ;

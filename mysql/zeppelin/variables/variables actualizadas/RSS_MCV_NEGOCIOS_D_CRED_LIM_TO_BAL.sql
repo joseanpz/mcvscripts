@@ -43,7 +43,7 @@ b.min_d_cred_lim_to_bal_12m,
 b.avg_d_cred_lim_to_bal_12m,
 b.avg_pnd_menos_d_cred_lim_to_bal_12m,
 b.avg_pnd_mas_d_cred_lim_to_bal_12m
-FROM JEA_MCV_UNIVERSO_NEGOCIOS a
+FROM RSS_MCV_UNIVERSO_RFC_NEGOCIOS a
 LEFT JOIN dbriskdatamart.MZM_MCV_D_CRED_LIM_TO_BAL_201906 b
 on a.fecha = b.fecha and a.rfc=b.rfc
  ;

@@ -21,7 +21,7 @@ b.min_ds_ol_cl,
 b.ds_cl,
 b.ms_op
 
-FROM JEA_MCV_UNIVERSO_NEGOCIOS a
+FROM RSS_MCV_UNIVERSO_RFC_NEGOCIOS a
 LEFT JOIN dbriskdatamart.JAT_MCV_VAR_MOVIMIENTOS_LINEA_201906 b
 on a.rfc=b.rfc and a.fecha=b.fecha
  ;

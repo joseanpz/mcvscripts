@@ -16,7 +16,7 @@ a.fecha,
 a.rfc , 
 b.dias_atraso,
 b.dpcv_cap
-FROM JEA_MCV_UNIVERSO_NEGOCIOS a
+FROM RSS_MCV_UNIVERSO_RFC_NEGOCIOS a
 LEFT JOIN dbriskdatamart.MZM_MCV_VAR_VARIABLES_DIASATRASO_201906 b
 on a.rfc=b.rfc and a.fecha=b.fecha
 ;

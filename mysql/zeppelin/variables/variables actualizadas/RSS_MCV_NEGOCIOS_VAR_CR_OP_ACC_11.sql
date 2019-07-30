@@ -1411,6 +1411,6 @@ b.avg_pct_venc89_brg_lse_lsg_op_acc,
 b.avg_pct_venc89_brg_lse_r_op_acc,
 b.avg_pct_venc89_brg_lse_cf_op_acc,
 b.avg_pct_venc89_brg_lse_other_op_acc
-FROM JEA_MCV_UNIVERSO_NEGOCIOS2 a
+FROM RSS_MCV_UNIVERSO_RFC_NEGOCIOS a
 LEFT JOIN dbriskdatamart.MZM_MCV_VAR_CR_OP_ACC_11_201906 b
-on a.foliorespuestabc = b.folio and a.rfc=b.rfc;
+on a.FOLIO_RESPUESTA_BC = b.folio and a.rfc=b.rfc;

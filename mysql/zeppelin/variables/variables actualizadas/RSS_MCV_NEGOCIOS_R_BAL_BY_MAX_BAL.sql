@@ -41,7 +41,7 @@ b.min_r_bal_by_max_bal_12m,
 b.avg_r_bal_by_max_bal_12m,
 b.avg_pnd_menos_r_bal_by_max_bal_12m,
 b.avg_pnd_mas_r_bal_by_max_bal_12m 
-FROM JEA_MCV_UNIVERSO_NEGOCIOS a
+FROM RSS_MCV_UNIVERSO_RFC_NEGOCIOS a
 LEFT JOIN dbriskdatamart.MZM_MCV_R_BAL_BY_MAX_BAL_201906 b
 on a.rfc=b.rfc and a.fecha=b.fechacartera
  ;

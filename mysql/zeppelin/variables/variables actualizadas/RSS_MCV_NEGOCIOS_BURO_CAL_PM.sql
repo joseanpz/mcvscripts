@@ -65,7 +65,7 @@ b.nbk12_pct_sat,
 b.nbk12_pct_60plus,
 b.nbk12_deuda_cp,
 b.nbk12_deuda_tot
-FROM JEA_MCV_UNIVERSO_NEGOCIOS2 a
+FROM RSS_MCV_UNIVERSO_RFC_NEGOCIOS a
 LEFT JOIN dbriskdatamart.MZM_MCV_BURO_CAL_PM_201906 b
-on a.foliorespuestabc = b.folio and a.rfc=b.rfc
+on a.FOLIO_RESPUESTA_BC = b.folio and a.rfc=b.rfc
  ;

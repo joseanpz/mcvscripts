@@ -1812,7 +1812,7 @@ b.avg_venc1m_brg_lse_lsg_op_acc_12m,
 b.avg_venc1m_brg_lse_r_op_acc_12m,
 b.avg_venc1m_brg_lse_other_op_acc_12m,
 b.avg_venc1m_brg_lse_cf_op_acc_12m
-FROM JEA_MCV_UNIVERSO_NEGOCIOS2 a
-LEFT JOIN dbriskdatamart.MZM_MCV_VAR_CR_OP_ACC_3_201905 b
-on a.foliorespuestabc = b.folio and a.rfc=b.rfc
+FROM RSS_MCV_UNIVERSO_RFC_NEGOCIOS a
+LEFT JOIN dbriskdatamart.MZM_MCV_VAR_CR_OP_ACC_3_201906 b
+on a.FOLIO_RESPUESTA_BC = b.folio and a.rfc=b.rfc
  ;

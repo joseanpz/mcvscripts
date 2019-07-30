@@ -1211,6 +1211,6 @@ b.min_salini_brg_lse_lsg_cl_acc_12m,
 b.min_salini_brg_lse_r_cl_acc_12m,
 b.min_salini_brg_lse_cf_cl_acc_12m
 
-FROM JEA_MCV_UNIVERSO_NEGOCIOS2  a
+FROM RSS_MCV_UNIVERSO_RFC_NEGOCIOS  a
 LEFT JOIN dbriskdatamart.MZM_MCV_VAR_CR_CL_ACC_201906 b
-on a.foliorespuestabc = b.folio and a.rfc=b.rfc ;
+on a.FOLIO_RESPUESTA_BC = b.folio and a.rfc=b.rfc ;

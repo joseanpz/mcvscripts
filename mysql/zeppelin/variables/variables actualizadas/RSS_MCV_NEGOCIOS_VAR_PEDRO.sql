@@ -43,7 +43,7 @@ b.sdo_no_rev,
 b.pct_rev,
 b.vcc_rev_smp,
 b.dt_vs_sd
-FROM JEA_MCV_UNIVERSO_NEGOCIOS a
+FROM RSS_MCV_UNIVERSO_RFC_NEGOCIOS a
 LEFT JOIN dbriskdatamart.JAT_MCV_VAR_PEDRO_201906 b
 on a.rfc=b.rfc and a.fecha=b.fecha
  ;

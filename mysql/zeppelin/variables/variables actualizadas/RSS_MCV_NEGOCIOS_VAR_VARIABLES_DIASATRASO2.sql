@@ -212,6 +212,6 @@ b.cnt_dec_u10m,
 b.cnt_dec_u11m,
 b.cnt_dec_u12m
 
-FROM JEA_MCV_UNIVERSO_NEGOCIOS a
+FROM RSS_MCV_UNIVERSO_RFC_NEGOCIOS a
 LEFT JOIN dbriskdatamart.MZM_MCV_VAR_VARIABLES_DIASATRASO2_201906 b
 on a.rfc=b.rfc and a.fecha=b.fecha ;

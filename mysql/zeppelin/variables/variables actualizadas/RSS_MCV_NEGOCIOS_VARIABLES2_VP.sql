@@ -742,7 +742,7 @@ b.avg_pnd_menos_avg2_vp_mes_u10,
 b.avg_pnd_menos_avg2_vp_mes_u11,
 b.avg_pnd_menos_avg2_vp_mes_u12
 
-FROM JEA_MCV_UNIVERSO_NEGOCIOS a
+FROM RSS_MCV_UNIVERSO_RFC_NEGOCIOS a
 LEFT JOIN dbriskdatamart.JAT_MCV_VARIABLES2_VP_201906 b
 on a.rfc=b.rfc and a.fecha=b.fecha
  ;
