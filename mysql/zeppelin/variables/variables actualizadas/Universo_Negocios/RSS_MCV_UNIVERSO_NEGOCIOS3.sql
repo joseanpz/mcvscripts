@@ -6,6 +6,7 @@ RSS_MCV_UNIVERSO_NEGOCIOS3
 ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' 
 LOCATION 's3://boi-banregio/datalake/data/InteligenciaRiesgos/M&M/MCV/RSS/RSS_MCV_UNIVERSO_NEGOCIOS3' AS
 SELECT B.FECHA, B.RFC ,B.LLAVE_UNIVERSAL_20, c.foliorespuestabc
+
 FROM DBMYMWORK.MCV_LGG_SEGMENTO_CLIENTE A
 INNER JOIN ( 
 	SELECT FECHA, RFC , LLAVE_UNIVERSAL_20
@@ -13,9 +14,14 @@ INNER JOIN (
 	GROUP BY FECHA,RFC, LLAVE_UNIVERSAL_20
 ) B
 ON A.FEC_CIERRE = B.FECHA AND A.RFC = B.RFC
-left join (select  fecha , rfc , max(foliorespuestabc) as foliorespuestabc from dbriskdatamart.MZM_MCV_UNIVERSO_MODELADO_201906
-group by fecha , rfc   ) c 
-on a.fec_cierre = c.fecha and a. rfc = c.rfc
+
+LEFT JOIN (
+	SELECT  fecha , rfc , max(foliorespuestabc) as foliorespuestabc 
+	FROM dbriskdatamart.MZM_MCV_UNIVERSO_MODELADO_201906
+	GROUP BY fecha , rfc 
+) C 
+ON A.fec_cierre = C.fecha and A.rfc = C.rfc
+
 WHERE A.SEGMENTOCLIENTE = 'NEGOCIOS' AND A.FEC_CIERRE >= 201905
 GROUP BY B.FECHA, B.RFC ,B.LLAVE_UNIVERSAL_20, c.foliorespuestabc; 
 
