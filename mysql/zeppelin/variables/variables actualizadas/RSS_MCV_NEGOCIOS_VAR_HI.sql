@@ -3,7 +3,8 @@ DROP TABLE IF EXISTS RSS_MCV_NEGOCIOS_VAR_HI;
 
 CREATE TABLE  RSS_MCV_NEGOCIOS_VAR_HI
 ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' 
-LOCATION 's3://boi-banregio/datalake/data/InteligenciaRiesgos/M&M/MCV/RSS_MCV_NEGOCIOS_VAR_HI' AS
+
+LOCATION 's3://boi-banregio/datalake/data/InteligenciaRiesgos/M&M/MCV/RSS/RSS_MCV_NEGOCIOS_VAR_HI' AS
 SELECT
 'fecha' AS fecha,
 'rfc' as rfc ,  
@@ -810,7 +811,6 @@ b.num_avg_hi_calcar_floor_03m,
 b.num_avg_hi_calcar_floor_06m,
 b.num_avg_hi_calcar_floor_12m
 
-FROM JEA_MCV_UNIVERSO_RFC a
-LEFT JOIN dbriskdatamart.JAT_MCV_VAR_HI_201905 b
-on a.folio_respuesta_bc = b.folio 
-where a.fecha >=201607 ;
+FROM JEA_MCV_UNIVERSO_NEGOCIOS2 a
+LEFT JOIN dbriskdatamart.JAT_MCV_VAR_HI_201906 b
+on a.foliorespuestabc = b.folio  ;

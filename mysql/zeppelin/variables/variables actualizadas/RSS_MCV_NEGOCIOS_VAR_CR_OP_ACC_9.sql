@@ -3,7 +3,7 @@ DROP TABLE IF EXISTS RSS_MCV_NEGOCIOS_VAR_CR_OP_ACC_9;
 
 CREATE TABLE  RSS_MCV_NEGOCIOS_VAR_CR_OP_ACC_9
 ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' 
-LOCATION 's3://boi-banregio/datalake/data/InteligenciaRiesgos/M&M/MCV/RSS_MCV_NEGOCIOS_VAR_CR_OP_ACC_9' AS
+LOCATION 's3://boi-banregio/datalake/data/InteligenciaRiesgos/M&M/MCV/RSS/RSS_MCV_NEGOCIOS_VAR_CR_OP_ACC_9' AS
 SELECT 
 'fecha' AS fecha,
 'rfc' as rfc ,
