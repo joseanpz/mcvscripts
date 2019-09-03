@@ -398,6 +398,6 @@ b.num_dec_avg2_vp_mes_t10,
 b.num_dec_avg2_vp_mes_t11,
 b.num_dec_avg2_vp_mes_t12
 FROM RSS_MCV_UNIVERSO_RFC_COMERCIAL a
-LEFT JOIN dbriskdatamart.JAT_MCV_VARIABLES3_VP_201907 b
+LEFT JOIN dbmymwork.JAT_MCV_VARIABLES3_VP_201907 b
 on a.rfc=b.rfc and a.fecha=b.fecha
 ;
