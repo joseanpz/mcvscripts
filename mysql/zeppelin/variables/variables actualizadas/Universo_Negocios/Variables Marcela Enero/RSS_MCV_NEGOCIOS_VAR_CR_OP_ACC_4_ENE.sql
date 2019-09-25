@@ -1,9 +1,9 @@
 %hive
-DROP TABLE IF EXISTS RSS_MCV_COMERCIAL_VAR_CR_OP_ACC_4;
+DROP TABLE IF EXISTS RSS_MCV_NEGOCIOS_VAR_CR_OP_ACC_4_ENE;
 
-CREATE TABLE  RSS_MCV_COMERCIAL_VAR_CR_OP_ACC_4
+CREATE TABLE  RSS_MCV_NEGOCIOS_VAR_CR_OP_ACC_4_ENE
 ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' 
-LOCATION 's3://boi-banregio/datalake/data/InteligenciaRiesgos/M&M/MCV/RSS/RSS_MCV_COMERCIAL_VAR_CR_OP_ACC_4' AS
+LOCATION 's3://boi-banregio/datalake/data/InteligenciaRiesgos/M&M/MCV/RSS/Enero/RSS_MCV_NEGOCIOS_VAR_CR_OP_ACC_4_ENE' AS
 SELECT  
 'fecha' AS fecha,
 'rfc' as rfc ,
@@ -907,7 +907,7 @@ SELECT
 'avg_venc90m_brg_lse_r_op_acc_12m' AS avg_venc90m_brg_lse_r_op_acc_12m,
 'avg_venc90m_brg_lse_cf_op_acc_12m' AS avg_venc90m_brg_lse_cf_op_acc_12m,
 'avg_venc90m_brg_lse_other_op_acc_12m' AS avg_venc90m_brg_lse_other_op_acc_12m;
-INSERT INTO RSS_MCV_COMERCIAL_VAR_CR_OP_ACC_4
+INSERT INTO RSS_MCV_NEGOCIOS_VAR_CR_OP_ACC_4_ENE
 SELECT 
 a.fecha , 
 a.rfc,
@@ -1811,7 +1811,7 @@ b.avg_venc90m_brg_lse_lsg_op_acc_12m,
 b.avg_venc90m_brg_lse_r_op_acc_12m,
 b.avg_venc90m_brg_lse_cf_op_acc_12m,
 b.avg_venc90m_brg_lse_other_op_acc_12m
-FROM  RSS_MCV_UNIVERSO_RFC_COMERCIAL a
+FROM RSS_MCV_UNIVERSO_RFC_NEGOCIOS a
 LEFT JOIN dbriskdatamart.MZM_MCV_VAR_CR_OP_ACC_4_201907 b
 on a.FOLIO_RESPUESTA_BC = b.folio and a.rfc=b.rfc
- ;
+where a.fecha = '201901';
