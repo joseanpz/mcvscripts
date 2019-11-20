@@ -1,0 +1,23 @@
+%hive
+
+DROP TABLE IF EXISTS RSS_MCV_COLOCACION_PEQUE;
+
+CREATE TABLE  RSS_MCV_COLOCACION_PEQUE(
+
+llave_universal  CHAR(20) ,
+fecha           CHAR(10)
+
+)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' 
+LOCATION 's3://boi-banregio/datalake/data/InteligenciaRiesgos/M&M/MCV/RSS_MCV_COLOCACION_PEQUE' ;
+INSERT INTO  RSS_MCV_COLOCACION_PEQUE	
+	
+	SELECT  distinct llaveuniversal AS llave_universal  , fecha 
+	FROM RSS_MCV_COLOCACION
+	WHERE perfilnegocioactual NOT IN ('CORPORATIVO', 'DIRECCION', 'DUMMY', 'GOBIERNO')
+	AND producto NOT IN ('3I ACS AUTOPRESTO', '3N ACS AUTOPRESTO', 'Z1 SEGURO ACS AUTOPRESTO')
+	AND subsegmentoproducto  <> 'AB - VARIOS'
+	AND (uen like "%PEQUE%")
+	AND FECHA >= 201401
+	-- AND FECHA >= '${FECHA_CARTERA_MIN}'
+	-- AND FECHA <= '${FECHA_CARTERA_MAX}';
