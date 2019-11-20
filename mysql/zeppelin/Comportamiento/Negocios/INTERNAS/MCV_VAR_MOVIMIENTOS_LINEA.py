@@ -1,0 +1,229 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------ SELECCIÓN DE UNIVERSO ----------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+%hive
+
+DROP TABLE IF EXISTS dbriskdatamart.MZM_MCV_UNIVERSO_MODELADO__${FECHA_CALIFICACION};
+CREATE TABLE dbriskdatamart.MZM_MCV_UNIVERSO_MODELADO__${FECHA_CALIFICACION}
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '|'
+
+LOCATION 's3://boi-banregio/datalake/data/InteligenciaRiesgos/M&M/MZM/MCV/MCV_MZM_UNIVERSO/MZM_MCV_UNIVERSO_MODELADO__${FECHA_CALIFICACION}' AS 
+
+SELECT
+
+T1.FECHA,
+T1.RFC,
+MAX_DIAS_ATRASO,
+SUM_CARTERA_VENCIDA,
+CASE
+    WHEN T2.LINEA IS NOT NULL THEN T2.FOLIOCONSULTABC
+    WHEN T3.RFC IS NOT NULL THEN T3.FOLIOCONSULTABC
+    ELSE T4.FOLIOCONSULTABC
+END AS FOLIOCONSULTABC,
+CASE
+    WHEN T2.LINEA IS NOT NULL THEN T2.FOLIORESPUESTABC
+    WHEN T3.RFC IS NOT NULL THEN T3.FOLIORESPUESTABC
+    ELSE T4.FOLIORESPUESTABC
+END AS FOLIORESPUESTABC,
+CASE
+    WHEN T2.LINEA IS NOT NULL THEN T2.FECHABC
+    WHEN T3.RFC IS NOT NULL THEN T3.FECHABC
+    ELSE T4.FECHABC
+END AS FECHABC
+
+FROM
+    (SELECT FECHA,RFC,MAX(CASE WHEN DIAS_ATRASO IS NULL THEN 0 ELSE DIAS_ATRASO END) AS MAX_DIAS_ATRASO,SUM(CASE WHEN CARTERA_VENCIDA IS NULL THEN 0 ELSE CARTERA_VENCIDA END) AS SUM_CARTERA_VENCIDA, MAX(LINEA) AS LINEA_MUESTRA 
+        FROM dbriskdatamart.Tbl_carteracrediticia
+            WHERE MIS <> 0
+            AND FECHA <= ${FECHA_CALIFICACION}
+                GROUP BY FECHA, RFC) T1
+                
+LEFT JOIN 
+   (SELECT DISTINCT FOLIOCONSULTABC, FOLIORESPUESTABC, FECHABC, LINEA, CONCAT(SUBSTR(ANIOMES,1,4),SUBSTR(ANIOMES,6,2)) AS ANIOMES  
+        FROM dbriskdatamart.Tbl_Rep_Reservas_SegPer_CV WHERE TIPOINTERVINIENTE = 'ACREDITADO') T2
+ON T1.LINEA_MUESTRA=T2.LINEA
+AND T1.FECHA=T2.ANIOMES
+    
+LEFT JOIN 
+   (SELECT DISTINCT FOLIOCONSULTABC, FOLIORESPUESTABC, FECHABC, RFC, CONCAT(SUBSTR(ANIOMES,1,4),SUBSTR(ANIOMES,6,2)) AS ANIOMES  
+        FROM dbriskdatamart.Tbl_Rep_Reservas_SegPer_CV WHERE TIPOINTERVINIENTE = 'ACREDITADO') T3
+ON T1.RFC=T3.RFC
+AND T1.FECHA=T3.ANIOMES
+
+LEFT JOIN 
+   (SELECT DISTINCT FOLIOCONSULTABC, FOLIORESPUESTABC, FECHABC, CLIENTERFC, CONCAT(SUBSTR(ANIOMES,1,4),SUBSTR(ANIOMES,6,2)) AS ANIOMES  
+        FROM dbriskdatamart.Tbl_Rep_Reservas_SegPer_CV WHERE TIPOINTERVINIENTE = 'ACREDITADO') T4
+ON T1.RFC=T4.CLIENTERFC
+AND T1.FECHA=T4.ANIOMES
+;
+
+SELECT * FROM dbriskdatamart.MZM_MCV_UNIVERSO_MODELADO__${FECHA_CALIFICACION} LIMIT 100;
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------- MOVIMIENTOS LÍNEA COPIA ---------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------ACTUALIZAR MOVIMIENTOS LÍNEA COPIA ---------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+USE dbriskdatamart;
+
+DROP TABLE IF EXISTS dbriskdatamart.JAT_MCV_VAR_MOVIMIENTOS_LINEA__${FECHA_CALIFICACION};
+CREATE TABLE dbriskdatamart.JAT_MCV_VAR_MOVIMIENTOS_LINEA__${FECHA_CALIFICACION}
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '|'
+
+LOCATION 's3://boi-banregio/datalake/data/InteligenciaRiesgos/M&M/MZM/MCV/JAT_MCV_VAR_MOVIMIENTOS_LINEA__${FECHA_CALIFICACION}' AS 
+
+SELECT
+	T1.RFC,
+	T1.FECHA,
+	SUM(T3.DS_OL_CL*T3.CUENTAS)/SUM(T3.CUENTAS) AS DS_OL_CL,-- EXISTEN CLIENTES QUE TIENEN MÁS DE UN NÚMERO DE CLIENTE IDE
+	MIN(T3.DS_OL_CL) AS MIN_DS_OL_CL,
+	-- MIN(TIMESTAMPDIFF(DAY,LAST_DAY(DATE_FORMAT(CONCAT(T1.FECHA,'01'),'%Y%m%d')),T2.FECHAVENCIMIENTODESPUES)) AS DS_CL,
+	MIN(DATEDIFF(T2.FECHAVENCIMIENTODESPUES,LAST_DAY(TO_DATE(CONCAT(SUBSTR(T1.FECHA,1,4),'-',SUBSTR(T1.FECHA,5,2),'-01'))))) AS DS_CL,
+	-- MAX(TIMESTAMPDIFF(MONTH,T4.MIN_FECHACAMBIO,LAST_DAY(DATE_FORMAT(CONCAT(T1.FECHA,'01'),'%Y%m%d')))) AS MS_OP
+	MAX((SUBSTR(T1.FECHA,1,4)-YEAR(T4.MIN_FECHACAMBIO))*12+SUBSTR(T1.FECHA,5,2)-MONTH(T4.MIN_FECHACAMBIO)-IF(DAY(LAST_DAY(TO_DATE(CONCAT(SUBSTR(T1.FECHA,1,4),'-',SUBSTR(T1.FECHA,5,2),'-01'))))<DAY(T4.MIN_FECHACAMBIO),1,0)) AS MS_OP
+FROM
+	(
+	SELECT
+	    A.RFC,
+	    A.FECHA,
+	    B.LINEA,
+	    CASE
+	        WHEN C.IDGRUPOIDE IS NULL THEN B.CLIENTE
+	        ELSE C.IDGRUPOIDE
+        END AS IDGRUPOIDE
+    FROM
+        DBRISKDATAMART.MZM_MCV_UNIVERSO_MODELADO__${FECHA_CALIFICACION} A
+    LEFT JOIN
+        DBRISKDATAMART.TBL_CARTERACREDITICIA B
+    ON
+        A.RFC = B.RFC AND A.FECHA = B.FECHA
+    LEFT JOIN
+        DBRISKDATAMART.TBL_DEMOGRAFICOS_IDORIGINAL C
+    ON
+        B.CLIENTE = C.IDCLIENTE
+	) T1
+LEFT JOIN
+	(
+	SELECT
+		A.IDGRUPOIDE,
+		A.LINEAORIGINAL,
+		A.FECHA,
+		B.FECHAVENCIMIENTODESPUES
+	FROM
+		(
+		SELECT
+			X.IDGRUPOIDE,
+			X.LINEAORIGINAL,
+			Y.FECHA,
+			MAX(CONCAT(FECHACAMBIO,LPAD(ID_MOVIMIENTOLIN,10,'0'))) AS MAX_ID_MOVIMIENTOLIN
+		FROM
+			dbriskdatamart.MZM_MCV_MOVIMIENTO_LINEAS_COPIA X
+		LEFT JOIN
+			(SELECT
+        	    D.RFC,
+        	    D.FECHA,
+        	    E.LINEA,
+        	    CASE
+        	        WHEN F.IDGRUPOIDE IS NULL THEN E.CLIENTE
+        	        ELSE F.IDGRUPOIDE
+                END AS IDGRUPOIDE
+            FROM
+                DBRISKDATAMART.MZM_MCV_UNIVERSO_MODELADO__${FECHA_CALIFICACION} D
+            LEFT JOIN
+                DBRISKDATAMART.TBL_CARTERACREDITICIA E
+            ON
+                D.RFC = E.RFC AND D.FECHA = E.FECHA
+            LEFT JOIN
+                DBRISKDATAMART.TBL_DEMOGRAFICOS_IDORIGINAL F
+            ON
+                E.CLIENTE = F.IDCLIENTE
+            ) Y
+		ON
+			X.IDGRUPOIDE = Y.IDGRUPOIDE
+		WHERE
+			CONCAT(YEAR(X.FECHACAMBIO)*100+MONTH(X.FECHACAMBIO)) <= Y.FECHA
+			
+		GROUP BY
+			X.IDGRUPOIDE,
+			X.LINEAORIGINAL,
+			Y.FECHA
+		) A
+	LEFT JOIN
+		(SELECT *, CONCAT(FECHACAMBIO,LPAD(ID_MOVIMIENTOLIN,10,'0')) AS ID_MOVIMIENTOLIN2 FROM dbriskdatamart.MZM_MCV_MOVIMIENTO_LINEAS_COPIA WHERE FECHAVENCIMIENTODESPUES <> '1900-01-01') B
+	ON
+		A.MAX_ID_MOVIMIENTOLIN = B.ID_MOVIMIENTOLIN2
+	) T2
+ON
+	T1.LINEA = T2.LINEAORIGINAL AND T1.FECHA = T2.FECHA
+LEFT JOIN
+	(
+	SELECT
+		A.IDGRUPOIDE,
+		COUNT(*) AS CUENTAS,
+		-- AVG(CASE WHEN B.FECHAVENCIMIENTODESPUES = '1900-01-01' THEN NULL ELSE TIMESTAMPDIFF(DAY,B.FECHACAMBIO,B.FECHAVENCIMIENTODESPUES) END) AS DS_OL_CL
+		AVG(CASE WHEN B.FECHAVENCIMIENTODESPUES = '1900-01-01' THEN NULL ELSE DATEDIFF(B.FECHAVENCIMIENTODESPUES,B.FECHACAMBIO) END) AS DS_OL_CL
+	FROM
+		(
+		-- SE OBTIENE EL ÚLTIMO MOVIMIENTO DE TODAS LAS LÍNEAS DE CRÉDITO COMERCIALES APERTURADAS EN LA FECHA MÍNIMA
+		SELECT
+			C.IDGRUPOIDE,
+			D.LINEAORIGINAL,
+			MAX(D.ID_MOVIMIENTOLIN) AS MAX_ID_MOVIMIENTOLIN
+		FROM
+			(
+			-- SE SELECCIONA LA FECHA MÍNIMA DE APERTURA DE CRÉDITOS COMERCIALES
+			SELECT
+				IDGRUPOIDE,
+				MIN(FECHACAMBIO) AS MIN_FECHACAMBIO
+			FROM
+				dbriskdatamart.MZM_MCV_MOVIMIENTO_LINEAS_COPIA
+			WHERE
+				PORTAFOLIO = 'COMERCIAL'
+			GROUP BY
+				IDGRUPOIDE
+			) C
+		LEFT JOIN
+			(SELECT * FROM dbriskdatamart.MZM_MCV_MOVIMIENTO_LINEAS_COPIA WHERE PORTAFOLIO = 'COMERCIAL') D
+		ON
+			C.IDGRUPOIDE = D.IDGRUPOIDE
+			AND C.MIN_FECHACAMBIO = D.FECHACAMBIO
+		GROUP BY
+			C.IDGRUPOIDE,
+			D.LINEAORIGINAL
+		) A
+	LEFT JOIN
+		dbriskdatamart.MZM_MCV_MOVIMIENTO_LINEAS_COPIA B
+	ON
+		A.IDGRUPOIDE = B.IDGRUPOIDE
+		AND A.MAX_ID_MOVIMIENTOLIN = B.ID_MOVIMIENTOLIN
+	GROUP BY
+		A.IDGRUPOIDE	
+	) T3
+ON
+	T1.IDGRUPOIDE = T3.IDGRUPOIDE
+LEFT JOIN
+	(
+	SELECT
+		IDGRUPOIDE,
+		MIN(FECHACAMBIO) AS MIN_FECHACAMBIO
+	FROM
+		dbriskdatamart.MZM_MCV_MOVIMIENTO_LINEAS_COPIA
+	WHERE
+		PORTAFOLIO = 'COMERCIAL'
+		AND TIPOMOVIMIENTO = 'Apertura'
+	GROUP BY
+		IDGRUPOIDE
+	) T4
+ON
+	T1.IDGRUPOIDE = T4.IDGRUPOIDE
+GROUP BY 
+	T1.RFC,
+	T1.FECHA
+;
+
+ SELECT * FROM dbriskdatamart.JAT_MCV_VAR_MOVIMIENTOS_LINEA__${FECHA_CALIFICACION} LIMIT 100;
