@@ -1,0 +1,4 @@
+1.-Primero paso es guardar como tipo de archivo csv cambiar ',' por '|'. 
+2.-Trasferir el archivo csv a linux usando el comando  sep archivo@ip:/ruta.
+3.-Ejecutar el script  para la carga de datos en  DBMYMWORK.
+

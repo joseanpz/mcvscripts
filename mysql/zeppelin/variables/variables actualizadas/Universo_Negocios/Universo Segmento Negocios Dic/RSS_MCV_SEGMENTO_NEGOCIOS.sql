@@ -11,7 +11,7 @@ SELECT B.FECHA, B.RFC , B.LLAVE_UNIVERSAL_20, C.foliorespuestabc
 FROM RSS_MCV_CARTERA_CREDITICIA_LINEA B
 LEFT JOIN (
 	SELECT  fecha , rfc , max(foliorespuestabc) as foliorespuestabc 
-	FROM dbriskdatamart.MZM_MCV_UNIVERSO_MODELADO_201912
+	FROM DBMYMWORK.MZM_MCV_UNIVERSO_MODELADO_201912
 	GROUP BY fecha , rfc 
 ) C
 ON B.FECHA = C.fecha and B.RFC = C.rfc
